@@ -4,7 +4,7 @@
   <link rel="icon" href="images/generated_two.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marvin Kraußer</title>
+  <title>Marvins Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -317,8 +317,8 @@
 
   <!-- HERO -->
   <section id="hero" data-nav="Start" class="hero-section">
-    <h1>Marvin Kraußer</h1>
-    <p>Ich studiere Medieninformatik im Bachelor und habe im Rahmen meines Studiums praktische Erfahrungen in verschiedenen Projekten gesammelt. Dabei habe ich mich unter anderem mit Backend-Entwicklung, Cybersecurity und Machine Learning beschäftigt und arbeite gerne im Team an neuen Lösungen.</p>
+    <h1>Hallo!</h1>
+    <p>Ich studiere Medieninformatik im Bachelor und habe im Rahmen meines Studiums praktische Erfahrungen in verschiedenen Projekten gesammelt. Besonders gerne arbeite ich an Projekten, in denen ich neue Technologien ausprobieren und vertiefen kann, aktuell vor allem im Bereich Machine Learning.</p>
     <div class="hero-links">
       <a class="text-link" href="https://github.com/marvinkrausser" target="_blank">GitHub ↗</a>
     </div>
@@ -421,12 +421,12 @@ class ProjectSection extends HTMLElement {
   connectedCallback() {
     const p = JSON.parse(this.getAttribute("data-project") || "{}");
     if (!p.id) return;
-
+ 
     const tags = p.tags.map(t => `<span class="tag">${t}</span>`).join("");
     const demo = p.demo
       ? `<a class="text-link ghost" href="${p.demo}" target="_blank">Live-Demo ↗</a>`
       : "";
-
+ 
     const blocks = (p.blocks || []).map((b, i) => {
       const flip = i % 2 === 1 ? " flip" : "";
       const imageContent = b.image
@@ -435,7 +435,7 @@ class ProjectSection extends HTMLElement {
              <div class="placeholder-icon">◻</div>
              <div class="placeholder-label">Bild einfügen</div>
            </div>`;
-
+ 
       return `
         <div class="content-block${flip}">
           <div class="block-image">${imageContent}</div>
@@ -446,15 +446,21 @@ class ProjectSection extends HTMLElement {
           </div>
         </div>`;
     }).join("");
-
+ 
     this.innerHTML = `
       <section class="project-section" id="${p.id}" data-nav="${p.title}">
         <div class="section-head">
           <p class="section-kicker">${p.title}</p>
           <h2 class="section-title">${p.title}</h2>
           <p class="section-desc">${p.description}</p>
+          <div class="meta-row">
+            <div class="tags">${tags}</div>
+          </div>
         </div>
         <div class="content-blocks">${blocks}</div>
+        <div class="links-row">
+          <a class="text-link" href="${p.github}" target="_blank">Auf GitHub ansehen ↗</a>
+        </div>
       </section>`;
   }
 }
