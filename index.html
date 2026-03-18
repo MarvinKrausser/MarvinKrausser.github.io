@@ -359,14 +359,8 @@ const PROJECTS = [
     {
       label: "",
       heading: "Bildgenerierung mit DeepLearning",
-      text: "Das Modell verwendet Convolutional Neural Networks und Deep Learning zur Generierung von Bildern. Als Trainingsdatensatz wurden die MNIST-Digits verwendet. Zusätzlich kann das Modell gezielt mit Klassen als Eingabe gesteuert werden, wie im Beispiel mit den Ziffern von 0 bis 9 gezeigt.",
+      text: "Das Modell verwendet Convolutional Neural Networks und Deep Learning zur Generierung von Bildern. Als Trainingsdatensatz wurden die MNIST-Digits verwendet. Zusätzlich kann das Modell gezielt mit Klassen als Eingabe gesteuert werden, wie im Beispiel mit den Ziffern von 0 bis 9 gezeigt. Aufgrund begrenzter Ressourcen ist mein Modell auf Datensätze mit niedriger Komplexität beschränkt.",
       image: "images/mnist_conditioned_gen_results_cropped.png",
-    },
-    {
-      label: "",
-      heading: "Aufteilung der Daten",
-      text: "Zur Vermeidung sogenannter Blindspots werden die Daten in einen horizontalen und einen vertikalen Stack aufgeteilt. Diese arbeiten mit unterschiedlichen Maskierungen und führen ihre Informationen am Ende wieder zusammen.",
-      image: "images/model_stacks.png",
     },
     {
       label: "",
@@ -380,7 +374,7 @@ const PROJECTS = [
   id: "boardgame",
   title: "Online Multyplayer Game",
   description: "Ein online multyplayer Brettspiel mit Server, Spielclient und KI-Spieler entstanden als Gruppenarbeit mit 5 weiteren Kommilitonen.",
-  tags: ["C#", ".net", "Unity"],
+  tags: ["C#", ".net", "Unity", "Docker"],
   github: "https://github.com/MarvinKrausser/BoardgameServer",
   blocks: [
     {
@@ -413,7 +407,7 @@ const PROJECTS = [
       {
         label: "",
         heading: "Singleplayer Towerdefense Game",
-        text: "Einfaches Towerdefense Spiel das von Grundauf mit eigenen Designs erstellt wurde. Nutzt den A*-Algorithmus zur Berechnung des Laufweges. Ein demo build ist im Github Repository.",
+        text: "Einfaches Towerdefense Spiel das von Grundauf mit eigenen Designs erstellt wurde. Nutzt den A*-Algorithmus zur Berechnung des Laufweges. Ein demo build ist im Github Repository vorhanden.",
         image: "images/towerdefense_demo.png",
       },
     ],
