@@ -10,22 +10,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg:      #fafaf8;
-      --surface: #f3f3f0;
-      --border:  #e5e5e0;
-      --text:    #1a1a18;
-      --muted:   #999990;
+      --bg:#5E4C93; 
+      --bg2: #000000;
+      --text:#FFFFFF; 
+      --surface:#3e3261; 
+      --muted:#C5C1D1; 
+      --border:#20192a; 
       --serif:   'Instrument Serif', Georgia, serif;
       --sans:    'DM Sans', system-ui, sans-serif;
       --nav-w:   230px;
     }
     @media (prefers-color-scheme: dark) {
-      :root { --bg:#141412; --surface:#1c1c19; --border:#2a2a26; --text:#f0f0ec; --muted:#686860; }
+      :root { 
+        --bg:#5E4C93; 
+        --bg2: #000000;
+        --text:#FFFFFF; 
+        --surface:#3e3261; 
+        --muted:#C5C1D1; 
+        --border:#20192a; 
+    }
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      background: var(--bg); color: var(--text);
+      background: linear-gradient(135deg, var(--bg), var(--bg2));
+      color: var(--text);
       font-family: var(--sans); font-size: 15px;
       font-weight: 300; line-height: 1.7;
       -webkit-font-smoothing: antialiased;
@@ -489,7 +498,7 @@ function buildNav() {
 
   // Statische Sections
   const staticSections = [
-    { id: "hero", label: "Start", group: null },
+    { id: "hero", label: "Über mich", group: null },
   ];
 
   // Projekt-Sections nach dem Rendern einsammeln
