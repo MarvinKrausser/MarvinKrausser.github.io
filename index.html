@@ -527,7 +527,11 @@ function buildNav() {
     // Sidebar link
     const a = document.createElement("a");
     a.className = "nav-link";
-    a.href = `#${s.id}`;
+    a.href = "#";
+    a.onclick = (e) => {
+    e.preventDefault();
+    scrollToSection(s.id);
+    };
     a.dataset.target = s.id;
     if (s.idx) {
       const num = document.createElement("span");
@@ -539,7 +543,12 @@ function buildNav() {
 
     // Mobile drawer link
     const ma = document.createElement("a");
-    ma.href = `#${s.id}`;
+    ma.href = "#";
+    ma.onclick = (e) => {
+    e.preventDefault();
+    scrollToSection(s.id);
+    closeDrawer();
+    };
     ma.textContent = s.idx ? `${s.idx} – ${s.label}` : s.label;
     ma.onclick = closeDrawer;
     drawerLinks.appendChild(ma);
@@ -569,6 +578,14 @@ setTimeout(() => { buildNav(); setupObserver(); }, 120);
 ══════════════════════════════════════════════════════ */
 function openDrawer()  { document.getElementById("drawer").classList.add("open"); }
 function closeDrawer() { document.getElementById("drawer").classList.remove("open"); }
+
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({
+    behavior: 'smooth'
+  });
+
+  history.replaceState(null, null, ' ');
+}
 </script>
 </body>
 </html>
