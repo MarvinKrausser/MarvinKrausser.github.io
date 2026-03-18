@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+  <link rel="icon" href="images/generated_two.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio</title>
@@ -302,7 +303,7 @@
 <aside class="sidebar">
   <div class="sidebar-top">
     <a class="sidebar-name" href="#hero">Marvin Kraußer</a>
-    <span class="sidebar-sub">Student Medieninformatik</span>
+    <span class="sidebar-sub">Student B.Sc.<br>Medieninformatik<br>Universität Ulm</span>
   </div>
   <nav class="sidebar-nav" id="sidebar-nav"></nav>
   <div class="sidebar-bottom">
@@ -316,12 +317,10 @@
 
   <!-- HERO -->
   <section id="hero" data-nav="Start" class="hero-section">
-    <p class="hero-eyebrow">Open-Source Developer</p>
-    <h1>Dinge bauen,<br><em>die bleiben.</em></h1>
-    <p class="hero-desc">Ich entwickle Open-Source-Tools, Web-Apps und CLI-Utilities. Jedes Projekt hat eine klare Aufgabe und einen sauberen Code.</p>
+    <h1>Marvin Kraußer</h1>
+    <p>Ich studiere Medieninformatik im Bachelor und habe im Rahmen meines Studiums praktische Erfahrungen in verschiedenen Projekten gesammelt. Dabei habe ich mich unter anderem mit Backend-Entwicklung, Cybersecurity und Machine Learning beschäftigt und arbeite gerne im Team an neuen Lösungen.</p>
     <div class="hero-links">
-      <a class="text-link" href="https://github.com/deinname" target="_blank">GitHub ↗</a>
-      <a class="text-link ghost" href="#awesome-cli">Projekte ansehen</a>
+      <a class="text-link" href="https://github.com/marvinkrausser" target="_blank">GitHub ↗</a>
     </div>
   </section>
 
@@ -342,100 +341,71 @@
 ══════════════════════════════════════════════════════ */
 const PROJECTS = [
   {
-    id: "awesome-cli",
-    title: "awesome-cli",
-    description: "CLI-Framework für Node.js mit automatischer Hilfe-Generierung, Farbausgabe und Plugin-System. TypeScript out-of-the-box.",
-    tags: ["TypeScript", "Node.js", "CLI"],
-    stars: 342, forks: 28, status: "active",
-    github: "https://github.com/deinname/awesome-cli",
-    demo: "https://awesome-cli.dev",
-    blocks: [
-      {
-        label: "Überblick",
-        heading: "Schnell zum fertigen CLI",
-        text: "awesome-cli nimmt den Boilerplate-Aufwand weg. Mit wenigen Zeilen entsteht ein vollständiges CLI mit automatisch generierter Hilfe, farbiger Ausgabe und Subcommands.",
-        image: null,
-      },
-      {
-        label: "Plugin-System",
-        heading: "Erweiterbar durch Plugins",
-        text: "Das integrierte Plugin-System erlaubt es, Commands, Middleware und Custom-Renderer zu registrieren – ohne den Core zu modifizieren.",
-        image: null,
-      },
-      {
-        label: "TypeScript",
-        heading: "First-class TypeScript-Support",
-        text: "Vollständige Typ-Definitionen, generische Command-Handler und automatische Completion-Generierung direkt aus den Typen.",
-        image: null,
-      },
-    ],
-  },
+  id: "pixelcnn",
+  title: "PixelCNN",
+  description: "Deeplearning Bildgenerierungsmodell auf PixelCnn Struktur mit PyTorch",
+  tags: ["Python", "PyTorch"],
+  github: "https://github.com/MarvinKrausser/pixelcnn",
+  blocks: [
+    {
+      label: "",
+      heading: "Bildgenerierung mit DeepLearning",
+      text: "Das Modell verwendet Convolutional Neural Networks und Deep Learning zur Generierung von Bildern. Als Trainingsdatensatz wurden die MNIST-Digits verwendet. Zusätzlich kann das Modell gezielt mit Klassen als Eingabe gesteuert werden, wie im Beispiel mit den Ziffern von 0 bis 9 gezeigt.",
+      image: "images/mnist_conditioned_gen_results_cropped.png",
+    },
+    {
+      label: "",
+      heading: "Aufteilung der Daten",
+      text: "Zur Vermeidung sogenannter Blindspots werden die Daten in einen horizontalen und einen vertikalen Stack aufgeteilt. Diese arbeiten mit unterschiedlichen Maskierungen und führen ihre Informationen am Ende wieder zusammen.",
+      image: "images/model_stacks.png",
+    },
+    {
+      label: "",
+      heading: "Seminararbeit",
+      text: "Das Projekt entstand im Rahmen einer begleitenden Seminararbeit. Sowohl die Ausarbeitung als auch die Präsentation sind im GitHub-Repository enthalten und beschreiben die Architektur und Funktionsweise des Modells im Detail.",
+      image: "images/seminararbeit.png",
+    }
+  ]
+},
   {
-    id: "react-grid-magic",
-    title: "react-grid-magic",
-    description: "Drag-and-Drop Grid-Layout-Bibliothek für React mit Resize-Support und responsiven Breakpoints.",
-    tags: ["React", "CSS Grid", "DnD"],
-    stars: 118, forks: 9, status: "active",
-    github: "https://github.com/deinname/react-grid-magic",
-    demo: "https://react-grid-magic.netlify.app",
-    blocks: [
-      {
-        label: "Layout",
-        heading: "Flexibles Grid-System",
-        text: "Definiere dein Layout deklarativ. Breakpoints werden automatisch berechnet, Abstände bleiben konsistent – egal wie viele Items im Grid liegen.",
-        image: null,
-      },
-      {
-        label: "Interaktion",
-        heading: "Drag, Drop & Resize",
-        text: "Nutzer können Elemente per Drag-and-Drop verschieben und in der Größe anpassen. Alle Events sind vollständig kontrollierbar.",
-        image: null,
-      },
-    ],
-  },
+  id: "boardgame",
+  title: "Online Multyplayer Game",
+  description: "Ein online multyplayer Brettspiel mit Server, Spielclient und KI-Spieler entstanden als Gruppenarbeit einer Vorlesung.",
+  tags: ["C#", ".net", "Unity"],
+  github: "https://github.com/MarvinKrausser/BoardgameServer",
+  blocks: [
+    {
+      label: "",
+      heading: "Client",
+      text: "Der Game Client wurde mit Unity und C# entwickelt und basiert auf einem rundenbasierten Bewegungs- und Kartensystem. Sämtliche Designs wurden eigenständig erstellt. Ein Benutzer- sowie ein Entwicklerhandbuch sind im GitHub-Repository enthalten.",
+      image: "images/boardgame_demo.png",
+    },
+    {
+      label: "",
+      heading: "Server",
+      text: "Der Server wurde in C# mit einer mehrschichtigen Architektur umgesetzt, die eine klare Trennung zwischen WebSocket-Verbindungsmanagement und spielbezogener Logik (z. B. Spielerzuweisung und Sitzungsverwaltung) ermöglicht. Die Kommunikation zwischen Server und Client wurde durch ein definiertes JSON-Schema standardisiert, um die Kompatibilität und Austauschbarkeit der von verschiedenen Entwicklerteams entwickelten Komponenten sicherzustellen.",
+      image: "images/boardgame_connection.png",
+    },
+    {
+      label: "",
+      heading: "KI-Spieler",
+      text: "Zusätzlich wurden mehrere regelbasierte KI-Spieler implementiert, die in das System integriert werden können. Die Codequalität wurde durch automatisierte Tests sichergestellt. Die Zusammenarbeit im Team erfolgte nach agilen Methoden (Scrum), und Server sowie KI wurden containerbasiert mit Docker bereitgestellt.",
+      image: "images/boardgame_ai.png",
+    }
+  ]
+},
   {
-    id: "dataflow-py",
-    title: "dataflow-py",
-    description: "Python-Bibliothek für deklarative Datenpipelines. Inspiriert von RxJS, aber für datenwissenschaftliche Workflows.",
-    tags: ["Python", "Pandas", "async"],
-    stars: 87, forks: 12, status: "active",
-    github: "https://github.com/deinname/dataflow-py",
-    demo: null,
+    id: "towerdefense",
+    title: "Towerdefense Game",
+    description: "Singleplayer Towerdefense Game mit Editor entstanden als Einzelprojekt einer Vorlesung",
+    tags: ["C#", "Unity"],
+    github: "https://github.com/MarvinKrausser/TowerDefenseGame",
     blocks: [
       {
-        label: "Konzept",
-        heading: "Pipelines statt Loops",
-        text: "Statt imperative Schleifen zu schreiben, beschreibst du den Datenfluss deklarativ. dataflow-py kümmert sich um Parallelisierung und Fehlerbehandlung.",
-        image: null,
-      },
-      {
-        label: "Async",
-        heading: "Nativ asynchron",
-        text: "Jede Pipeline kann async ausgeführt werden. Quellen, Transformer und Senken sind frei kombinierbar – auch mit bestehenden Pandas-Workflows.",
-        image: null,
-      },
-    ],
-  },
-  {
-    id: "vault-rs",
-    title: "vault-rs",
-    description: "Kommandozeilen-Passwortmanager in Rust. Lokale Verschlüsselung, portabel, kein Cloud-Zwang.",
-    tags: ["Rust", "Crypto", "CLI"],
-    stars: 173, forks: 21, status: "active",
-    github: "https://github.com/deinname/vault-rs",
-    demo: null,
-    blocks: [
-      {
-        label: "Sicherheit",
-        heading: "Verschlüsselung lokal, nicht in der Cloud",
-        text: "Alle Daten liegen AES-256-verschlüsselt auf deinem Gerät. Kein Server, kein Account, kein Tracking.",
-        image: null,
-      },
-      {
-        label: "Portabilität",
-        heading: "Ein Binary, überall lauffähig",
-        text: "vault-rs kompiliert zu einem einzelnen, statisch gelinkten Binary. Kein Runtime, keine Abhängigkeiten – einfach kopieren und loslegen.",
-        image: null,
+        label: "",
+        heading: "Singleplayer Towerdefense Game",
+        text: "Einfaches Towerdefense Spiel das von Grundauf mit eigenen Designs erstellt wurde. Nutzt den A*-Algorithmus zur Berechnung des Laufweges. Ein demo build ist im Github Repository.",
+        image: "images/towerdefense_demo.png",
       },
     ],
   },
@@ -483,21 +453,8 @@ class ProjectSection extends HTMLElement {
           <p class="section-kicker">${p.title}</p>
           <h2 class="section-title">${p.title}</h2>
           <p class="section-desc">${p.description}</p>
-          <div class="meta-row">
-            <div class="tags">${tags}</div>
-            <span class="stat">★ ${p.stars}</span>
-            <span class="stat">⑂ ${p.forks}</span>
-            <span class="stat">
-              <span class="status-dot ${p.status}"></span>
-              ${p.status === "active" ? "Aktiv" : "Archiviert"}
-            </span>
-          </div>
         </div>
         <div class="content-blocks">${blocks}</div>
-        <div class="links-row">
-          <a class="text-link" href="${p.github}" target="_blank">Auf GitHub ansehen ↗</a>
-          ${demo}
-        </div>
       </section>`;
   }
 }
