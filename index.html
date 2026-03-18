@@ -379,7 +379,7 @@ const PROJECTS = [
   {
   id: "boardgame",
   title: "Online Multyplayer Game",
-  description: "Ein online multyplayer Brettspiel mit Server, Spielclient und KI-Spieler entstanden als Gruppenarbeit einer Vorlesung.",
+  description: "Ein online multyplayer Brettspiel mit Server, Spielclient und KI-Spieler entstanden als Gruppenarbeit mit 5 weiteren Kommilitonen.",
   tags: ["C#", ".net", "Unity"],
   github: "https://github.com/MarvinKrausser/BoardgameServer",
   blocks: [
@@ -459,7 +459,6 @@ class ProjectSection extends HTMLElement {
     this.innerHTML = `
       <section class="project-section" id="${p.id}" data-nav="${p.title}">
         <div class="section-head">
-          <p class="section-kicker">${p.title}</p>
           <h2 class="section-title">${p.title}</h2>
           <p class="section-desc">${p.description}</p>
           <div class="meta-row">
@@ -498,7 +497,7 @@ function buildNav() {
 
   // Statische Sections
   const staticSections = [
-    { id: "hero", label: "Hallo!", group: null },
+    { id: "hero", label: "Hallo!", group: null, idx: "00" },
   ];
 
   // Projekt-Sections nach dem Rendern einsammeln
@@ -550,7 +549,6 @@ function buildNav() {
     closeDrawer();
     };
     ma.textContent = s.idx ? `${s.idx} – ${s.label}` : s.label;
-    ma.onclick = closeDrawer;
     drawerLinks.appendChild(ma);
   });
 }
@@ -584,7 +582,7 @@ function scrollToSection(id) {
     behavior: 'smooth'
   });
 
-  history.replaceState(null, null, ' ');
+  history.replaceState(null, null, window.location.pathname);
 }
 </script>
 </body>
