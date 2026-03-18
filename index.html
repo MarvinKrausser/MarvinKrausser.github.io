@@ -2,46 +2,107 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Meine Website</title>
+    <title>Mein Portfolio</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
             margin: 0;
-            padding: 0;
+            background-color: #f4f4f4;
         }
-        .container {
-            margin-top: 100px;
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
-        }
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007acc;
+
+        header {
+            background-color: #222;
             color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .project {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .project h2 {
+            margin-top: 0;
+        }
+
+        .project p {
+            color: #555;
+        }
+
+        .project a {
+            display: inline-block;
+            margin-top: 10px;
             text-decoration: none;
+            color: white;
+            background-color: #007acc;
+            padding: 8px 15px;
             border-radius: 5px;
         }
-        a:hover {
+
+        .project a:hover {
             background-color: #005f99;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Hallo 👋</h1>
-    <p>Ich bin [Dein Name] und studiere Medieninformatik.</p>
-    <p>Willkommen auf meiner ersten GitHub-Website!</p>
+<header>
+    <h1>Mein Portfolio</h1>
+    <p>Medieninformatik Student | Softwareentwicklung</p>
+</header>
 
-    <a href="#">Mein Lebenslauf</a>
+<div class="container">
+
+    <!-- 🔹 PROJEKT BLOCK START -->
+    <div class="project">
+        <h2>PixelCNN Bildgenerierung</h2>
+        <p>
+            Deep-Learning-Modell zur Bildgenerierung basierend auf der PixelCNN-Architektur,
+            implementiert in PyTorch.
+        </p>
+        <a href="#">GitHub ansehen</a>
+    </div>
+    <!-- 🔹 PROJEKT BLOCK ENDE -->
+
+
+    <!-- 🔹 PROJEKT BLOCK START -->
+    <div class="project">
+        <h2>Turnbased Boardgame</h2>
+        <p>
+            Entwicklung eines rundenbasierten Brettspiels mit C# WebSocket-Server,
+            regelbasierter KI sowie Client und Level-Editor in Unity.
+        </p>
+        <a href="#">GitHub ansehen</a>
+    </div>
+    <!-- 🔹 PROJEKT BLOCK ENDE -->
+
+
+    <!-- 👉 HIER EINFACH KOPIEREN UND NEUES PROJEKT EINFÜGEN -->
+    <!-- 🔹 PROJEKT BLOCK START -->
+    <div class="project">
+        <h2>Projektname</h2>
+        <p>
+            Beschreibung deines Projekts.
+        </p>
+        <a href="#">GitHub ansehen</a>
+    </div>
+    <!-- 🔹 PROJEKT BLOCK ENDE -->
+
+
 </div>
 
 </body>
