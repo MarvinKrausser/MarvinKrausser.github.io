@@ -1,0 +1,123 @@
+{
+  "title_website": "Marvins Protfolio",
+  "title_introduction": "Hallo!",
+  "content_introduction": "Ich studiere Medieninformatik im Bachelor und habe im Rahmen meines Studiums praktische Erfahrungen in verschiedenen Projekten gesammelt. Besonders gerne arbeite ich an Projekten, in denen ich neue Technologien ausprobieren und vertiefen kann, aktuell vor allem im Bereich Machine Learning.",
+  "status": "Stuent B.Sc.",
+  "profession": "Medieninformatik",
+  "workplace": "Universität Ulm",
+  "content": [
+    {
+      "id": "pixelcnn",
+      "title": "PixelCNN Bildgeneration",
+      "description": "Autoregressives Deep Learning-Modell basierend auf PixelCNN zur generativen Bildsynthese mit PyTorch.",
+      "tags": [
+        "Python",
+        "PyTorch",
+        "CUDA"
+      ],
+      "links": [
+        {
+          "id": "github",
+          "link": "https://github.com/MarvinKrausser/pixelcnn",
+          "desc": "Auf GitHub ansehen ↗"
+        },
+        {
+          "id": "seminararbeit",
+          "link": "pdfs/Seminararbeit.pdf",
+          "desc": "Seminararbeit ansehen ↗"
+        },
+        {
+          "id": "seminarvortrag",
+          "link": "pdfs/Seminararbeit_Vortrag.pdf",
+          "desc": "Seminarvortrag ansehen ↗"
+        }
+      ],
+      "blocks": [
+        {
+          "label": "",
+          "heading": "Bildgenerierung mit Deep Learning",
+          "text": "Das Modell verwendet Convolutional Neural Networks und Deep Learning zur Generierung von Bildern. Als Trainingsdatensatz wurden die MNIST-Digits verwendet und mittels CUDA auf einer GPU trainiert. Zusätzlich kann das Modell gezielt mit Klassen als Eingabe gesteuert werden, wie im Beispiel mit den Ziffern von 0 bis 9 gezeigt. Aufgrund begrenzter Ressourcen ist mein Modell auf Datensätze mit niedriger Komplexität beschränkt.",
+          "image": "images/mnist_conditioned_gen_results_cropped.png"
+        },
+        {
+          "label": "",
+          "heading": "Seminararbeit",
+          "text": "Das Projekt entstand begleitend zusätzlich zu einer Seminararbeit und Vortrag. Beide Pdfs sind verlinkt.",
+          "image": "images/seminararbeit.png"
+        }
+      ]
+    },
+    {
+      "id": "boardgame",
+      "title": "Online Multiplayer Game",
+      "description": "Ein Online-Multiplayer-Brettspiel mit Server, Spielclient und KI-Spieler entstanden als Gruppenarbeit mit 5 weiteren Kommilitonen.",
+      "tags": [
+        "C#",
+        ".net",
+        "Unity",
+        "Docker"
+      ],
+      "links": [
+        {
+          "id": "github",
+          "link": "https://github.com/MarvinKrausser/BoardgameServer",
+          "desc": "Auf GitHub ansehen ↗"
+        },
+        {
+          "id": "entwicklerhandbuch",
+          "link": "pdfs/Team23_Entwicklerhandbuch_BoC.pdf",
+          "desc": "Entwicklerhandbuch ansehen ↗"
+        },
+        {
+          "id": "benutzerhandbuch",
+          "link": "pdfs/Team23_Benutzerhandbuch_BoC.pdf",
+          "desc": "Benutzerhandbuch ansehen ↗"
+        }
+      ],
+      "blocks": [
+        {
+          "label": "",
+          "heading": "Client",
+          "text": "Der Game Client wurde mit Unity und C# entwickelt und basiert auf einem rundenbasierten Bewegungs- und Kartensystem. Sämtliche Designs wurden eigenständig erstellt. Auch ein Benutzerhandbuch und Entwicklerhandbuch wurden erstellt und sind verlinkt.",
+          "image": "images/boardgame_demo.png"
+        },
+        {
+          "label": "",
+          "heading": "Server",
+          "text": "Der Server wurde in C# mit einer mehrschichtigen Architektur umgesetzt, die eine klare Trennung zwischen WebSocket-Verbindungsmanagement und spielbezogener Logik (z. B. Spielerzuweisung und Sitzungsverwaltung) ermöglicht. Die Kommunikation zwischen Server und Client wurde durch ein definiertes JSON-Schema standardisiert, um die Kompatibilität und Austauschbarkeit der von verschiedenen Entwicklerteams entwickelten Komponenten sicherzustellen.",
+          "image": "images/boardgame_connection.png"
+        },
+        {
+          "label": "",
+          "heading": "KI-Spieler",
+          "text": "Zusätzlich wurden mehrere regelbasierte KI-Spieler implementiert, die in das System integriert werden können. Die Codequalität wurde durch automatisierte Tests sichergestellt. Die Zusammenarbeit im Team erfolgte nach agilen Methoden (Scrum), und Server sowie KI wurden containerbasiert mit Docker bereitgestellt.",
+          "image": "images/boardgame_ai.png"
+        }
+      ]
+    },
+    {
+      "id": "towerdefense",
+      "title": "Towerdefense Game",
+      "description": "Singleplayer Towerdefense Game mit Editor entstanden im Rahmen einer Vorlesung als Einzelprojekt.",
+      "tags": [
+        "C#",
+        "Unity"
+      ],
+      "links": [
+        {
+          "id": "github",
+          "link": "https://github.com/MarvinKrausser/TowerDefenseGame",
+          "desc": "Auf GitHub ansehen ↗"
+        }
+      ],
+      "blocks": [
+        {
+          "label": "",
+          "heading": "Singleplayer Tower Defense Game",
+          "text": "Einfaches Tower-Defense-Spiel das von Grund auf mit eigenen Designs erstellt wurde. Nutzt den A*-Algorithmus zur Berechnung des Laufweges. Ein Demo-Build ist im Github Repository vorhanden.",
+          "image": "images/towerdefense_demo.png"
+        }
+      ]
+    }
+  ]
+}

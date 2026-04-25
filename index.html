@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title id="website_title"></title>
+    <link rel="stylesheet" href="main_style.css">
+</head>
+
+<body>
+
+    <nav id="navbar">
+    </nav>
+
+    <div id="introduction"></div>
+
+    <div id="app"></div>
+
+    <script>
+        history.scrollRestoration = "manual";
+
+        function saveScroll() {
+            sessionStorage.setItem("scrollY", window.scrollY);
+        }
+
+        function restoreScroll() {
+            const scrollY = sessionStorage.getItem("scrollY");
+            if (scrollY !== null) {
+                window.scrollTo(0, parseInt(scrollY));
+            }
+        }
+
+        window.addEventListener("beforeunload", saveScroll);
+
+        async function loadData() {
+            const response = await fetch("./lang/de.json");
+            const data = await response.json();
+
+            const website_title = document.getElementById("website_title");
+            website_title.textContent = data.title_website;
+
+            const introduction = document.getElementById("introduction");
+            const container = document.getElementById("app");
+            const navbar = document.getElementById("navbar");
+
+            const headline_introduction = document.createElement("h1");
+            headline_introduction.textContent = data.title_introduction;
+            introduction.appendChild(headline_introduction);
+
+            const content_introduction = document.createElement("p");
+            content_introduction.textContent = data.content_introduction;
+            introduction.appendChild(content_introduction);
+
+            const navbar_item = document.createElement("li");
+            navbar_item.className = "navbar-item";
+            navbar.appendChild(navbar_item);
+
+            const navbar_link = document.createElement("a");
+            navbar_link.href = "#introduction";
+            navbar_link.textContent = data.title_introduction;
+            navbar_item.appendChild(navbar_link);
+
+
+            data.content.forEach(item => {
+                const project = document.createElement("section");
+                project.className = "project-section";
+                project.id = item.id;
+                container.appendChild(project);
+
+                const navbar_item = document.createElement("li");
+                navbar_item.className = "navbar-item";
+                navbar.appendChild(navbar_item);
+
+                const navbar_link = document.createElement("a");
+                navbar_link.href = `#${item.id}`;
+                navbar_link.textContent = item.title;
+                navbar_item.appendChild(navbar_link);
+
+                const header = document.createElement("div");
+                header.className = "section-header";
+                project.appendChild(header);
+
+                const headerTitle = document.createElement("h2");
+                headerTitle.className = "section-title";
+                headerTitle.textContent = item.title;
+                header.appendChild(headerTitle);
+
+                const headerDesc = document.createElement("p");
+                headerDesc.className = "section-desc";
+                headerDesc.textContent = item.description;
+                header.appendChild(headerDesc);
+
+                const tags = document.createElement("div");
+                tags.className = "tags";
+                header.appendChild(tags);
+
+                item.tags.forEach(tag_json => {
+                    const tag = document.createElement("span");
+                    tag.className = "tag";
+                    tag.textContent = tag_json;
+                    tags.appendChild(tag);
+                });
+
+                const content_blocks = document.createElement("div");
+                content_blocks.className = "content-blocks";
+                project.appendChild(content_blocks);
+
+                item.blocks.forEach((content, i) => {
+                    const content_block = document.createElement("div");
+                    content_block.className = "content-block";
+                    content_blocks.appendChild(content_block);
+
+                    const block_image = document.createElement("div");
+
+                    const image = document.createElement("img");
+                    image.src = content.image;
+                    image.loading = "lazy";
+                    block_image.appendChild(image);
+
+                    const block_text = document.createElement("div");
+
+                    const text_title = document.createElement("h3");
+                    text_title.textContent = content.heading;
+                    block_text.appendChild(text_title);
+
+                    const text = document.createElement("p");
+                    text.textContent = content.text;
+                    block_text.appendChild(text);
+
+                    if (i % 2 == 1) {
+                        block_image.className = "block-image right";
+                        block_text.className = "block-text left";
+                        content_block.appendChild(block_text);
+                        content_block.appendChild(block_image);
+                    } else {
+                        block_image.className = "block-image left";
+                        block_text.className = "block-text right";
+                        content_block.appendChild(block_image);
+                        content_block.appendChild(block_text);
+                    }
+                });
+
+                const links = document.createElement("div");
+                links.className = "link-row";
+                project.appendChild(links);
+
+                item.links.forEach(link_json => {
+                    const entrance = document.createElement("div");
+                    links.appendChild(entrance);
+
+                    const link = document.createElement("a");
+                    link.href = link_json.link;
+                    link.target = "_blank";
+                    link.rel = "noopener noreferrer";
+                    link.className = "text-link";
+                    link.textContent = link_json.desc;
+                    entrance.appendChild(link);
+                });
+            });
+            restoreScroll();
+        }
+
+        loadData();
+    </script>
+
+</body>
+
+</html>
