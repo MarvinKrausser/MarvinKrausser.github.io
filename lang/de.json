@@ -5,6 +5,8 @@
   "status": "Stuent B.Sc.",
   "profession": "Medieninformatik",
   "workplace": "Universität Ulm",
+  "github_desc": "Auf GitHub ansehen ↗",
+  "navbar_group": "Projekte",
   "content": [
     {
       "id": "pixelcnn",
@@ -15,23 +17,7 @@
         "PyTorch",
         "CUDA"
       ],
-      "links": [
-        {
-          "id": "github",
-          "link": "https://github.com/MarvinKrausser/pixelcnn",
-          "desc": "Auf GitHub ansehen ↗"
-        },
-        {
-          "id": "seminararbeit",
-          "link": "pdfs/Seminararbeit.pdf",
-          "desc": "Seminararbeit ansehen ↗"
-        },
-        {
-          "id": "seminarvortrag",
-          "link": "pdfs/Seminararbeit_Vortrag.pdf",
-          "desc": "Seminarvortrag ansehen ↗"
-        }
-      ],
+      "github": "https://github.com/MarvinKrausser/pixelcnn",
       "blocks": [
         {
           "label": "",
@@ -42,8 +28,20 @@
         {
           "label": "",
           "heading": "Seminararbeit",
-          "text": "Das Projekt entstand begleitend zusätzlich zu einer Seminararbeit und Vortrag. Beide Pdfs sind verlinkt.",
-          "image": "images/seminararbeit.png"
+          "text": "Das Projekt entstand begleitend zusätzlich zu einer --link-- und --link--.",
+          "image": "images/seminararbeit.png",
+          "links": [
+            {
+              "id": "seminararbeit",
+              "link": "pdfs/Seminararbeit.pdf",
+              "desc": "Seminararbeit ↗"
+            },
+            {
+              "id": "seminarvortrag",
+              "link": "pdfs/Seminararbeit_Vortrag.pdf",
+              "desc": "Vortrag ↗"
+            }
+          ]
         }
       ]
     },
@@ -57,29 +55,25 @@
         "Unity",
         "Docker"
       ],
-      "links": [
-        {
-          "id": "github",
-          "link": "https://github.com/MarvinKrausser/BoardgameServer",
-          "desc": "Auf GitHub ansehen ↗"
-        },
-        {
-          "id": "entwicklerhandbuch",
-          "link": "pdfs/Team23_Entwicklerhandbuch_BoC.pdf",
-          "desc": "Entwicklerhandbuch ansehen ↗"
-        },
-        {
-          "id": "benutzerhandbuch",
-          "link": "pdfs/Team23_Benutzerhandbuch_BoC.pdf",
-          "desc": "Benutzerhandbuch ansehen ↗"
-        }
-      ],
+      "github": "https://github.com/MarvinKrausser/BoardgameServer",
       "blocks": [
         {
           "label": "",
           "heading": "Client",
-          "text": "Der Game Client wurde mit Unity und C# entwickelt und basiert auf einem rundenbasierten Bewegungs- und Kartensystem. Sämtliche Designs wurden eigenständig erstellt. Auch ein Benutzerhandbuch und Entwicklerhandbuch wurden erstellt und sind verlinkt.",
-          "image": "images/boardgame_demo.png"
+          "text": "Der Game Client wurde mit Unity und C# entwickelt und basiert auf einem rundenbasierten Bewegungs- und Kartensystem. Sämtliche Designs wurden eigenständig erstellt. Auch ein --link-- und --link-- wurden erstellt.",
+          "image": "images/boardgame_demo.png",
+          "links": [
+            {
+              "id": "entwicklerhandbuch",
+              "link": "pdfs/Team23_Entwicklerhandbuch_BoC.pdf",
+              "desc": "Entwicklerhandbuch ↗"
+            },
+            {
+              "id": "benutzerhandbuch",
+              "link": "pdfs/Team23_Benutzerhandbuch_BoC.pdf",
+              "desc": "Benutzerhandbuch ↗"
+            }
+          ]
         },
         {
           "label": "",
@@ -103,6 +97,7 @@
         "C#",
         "Unity"
       ],
+      "github": "https://github.com/MarvinKrausser/TowerDefenseGame",
       "links": [
         {
           "id": "github",

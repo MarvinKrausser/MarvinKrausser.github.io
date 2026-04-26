@@ -2,19 +2,32 @@
 <html lang="de">
 
 <head>
+    <link rel="icon" href="images/generated_two_no_background.png">
     <meta charset="UTF-8">
     <title id="website_title"></title>
     <link rel="stylesheet" href="main_style.css">
 </head>
 
 <body>
+    <aside class="sidebar">
+        <div id="sidebar-top">
+            <h3 id="sidebar-top-head">Marvin Kraußer</h3>
+            <div id="sidebar-top-content"></div>
+        </div>
+        <nav id="navbar">
+        </nav>
+        <div id="sidebar-bottom">
+            <a target="_blank" link.rel="noopener noreferrer"
+                href="https://github.com/marvinkrausser">github.com/marvinkrausser ↗</a>
+            <a href="mailto:marvin.krausser277@gmail.com">marvin.krausser277@gmail.com</a>
+        </div>
+    </aside>
 
-    <nav id="navbar">
-    </nav>
+    <div class="main-content">
+        <div id="introduction" data-nav="introduction"></div>
 
-    <div id="introduction"></div>
-
-    <div id="app"></div>
+        <div id="projects-section"></div>
+    </div>
 
     <script>
         history.scrollRestoration = "manual";
@@ -26,11 +39,41 @@
         function restoreScroll() {
             const scrollY = sessionStorage.getItem("scrollY");
             if (scrollY !== null) {
+
+                document.documentElement.style.scrollBehavior = "auto";
+
                 window.scrollTo(0, parseInt(scrollY));
+
+                document.documentElement.style.scrollBehavior = "smooth";
             }
         }
 
         window.addEventListener("beforeunload", saveScroll);
+
+        function setupObserver() {
+            const sections = document.querySelectorAll("[data-nav]");
+            const navLinks = document.querySelectorAll(".nav-link");
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+
+                        navLinks.forEach(link => {
+                            link.classList.toggle(
+                                "active",
+                                link.dataset.target === entry.target.id
+                            );
+                        });
+
+                    }
+                });
+            }, {
+                threshold: 0.3,
+                rootMargin: "0px 0px -30% 0px"
+            });
+
+            sections.forEach(section => observer.observe(section));
+        }
 
         async function loadData() {
             const response = await fetch("./lang/de.json");
@@ -40,8 +83,21 @@
             website_title.textContent = data.title_website;
 
             const introduction = document.getElementById("introduction");
-            const container = document.getElementById("app");
+            const container = document.getElementById("projects-section");
             const navbar = document.getElementById("navbar");
+            const sidebar_top = document.getElementById("sidebar-top-content");
+
+            const sidebar_top_status = document.createElement("p");
+            sidebar_top_status.textContent = data.status;
+            sidebar_top.appendChild(sidebar_top_status);
+
+            const sidebar_top_profession = document.createElement("p");
+            sidebar_top_profession.textContent = data.profession;
+            sidebar_top.appendChild(sidebar_top_profession);
+
+            const sidebar_top_workplace = document.createElement("p");
+            sidebar_top_workplace.textContent = data.workplace;
+            sidebar_top.appendChild(sidebar_top_workplace);
 
             const headline_introduction = document.createElement("h1");
             headline_introduction.textContent = data.title_introduction;
@@ -56,15 +112,30 @@
             navbar.appendChild(navbar_item);
 
             const navbar_link = document.createElement("a");
+            navbar_link.className = "nav-link";
             navbar_link.href = "#introduction";
-            navbar_link.textContent = data.title_introduction;
+
+            const idx = document.createElement("span");
+            idx.className = "idx";
+            idx.textContent = "00\u00A0\u00A0\u00A0";
+            navbar_link.appendChild(idx);
+
+            const text = document.createTextNode(data.title_introduction);
+            navbar_link.appendChild(text);
+            navbar_link.dataset.target = "introduction";
             navbar_item.appendChild(navbar_link);
 
+            const navbar_group = document.createElement("li");
+            navbar_group.className = "navbar-group";
+            navbar_group.textContent = data.navbar_group
+            navbar.appendChild(navbar_group);
 
-            data.content.forEach(item => {
+
+            data.content.forEach((item, j) => {
                 const project = document.createElement("section");
                 project.className = "project-section";
                 project.id = item.id;
+                project.setAttribute("data-nav", item.id);
                 container.appendChild(project);
 
                 const navbar_item = document.createElement("li");
@@ -72,15 +143,24 @@
                 navbar.appendChild(navbar_item);
 
                 const navbar_link = document.createElement("a");
+                navbar_link.className = "nav-link";
                 navbar_link.href = `#${item.id}`;
-                navbar_link.textContent = item.title;
+
+                const idx = document.createElement("span");
+                idx.className = "idx";
+                idx.textContent = String(j + 1).padStart(2, "0") + "\u00A0\u00A0\u00A0";
+                navbar_link.appendChild(idx);
+
+                const text = document.createTextNode(item.title);
+                navbar_link.appendChild(text);
+                navbar_link.dataset.target = item.id;
                 navbar_item.appendChild(navbar_link);
 
                 const header = document.createElement("div");
                 header.className = "section-header";
                 project.appendChild(header);
 
-                const headerTitle = document.createElement("h2");
+                const headerTitle = document.createElement("h1");
                 headerTitle.className = "section-title";
                 headerTitle.textContent = item.title;
                 header.appendChild(headerTitle);
@@ -123,9 +203,28 @@
                     text_title.textContent = content.heading;
                     block_text.appendChild(text_title);
 
-                    const text = document.createElement("p");
-                    text.textContent = content.text;
-                    block_text.appendChild(text);
+                    const parts = content.text.split("--link--");
+                    const text_content = document.createElement("div");
+                    text_content.className = "text-content";
+                    block_text.appendChild(text_content);
+
+                    parts.forEach((part, i) => {
+                        const text = document.createElement("span");
+                        text.textContent = part;
+                        text_content.appendChild(text);
+
+                        if (i < parts.length - 1) {
+                            const link_list = content.links;
+                            const a = document.createElement("a");
+                            a.href = link_list[i].link;
+                            a.textContent = link_list[i].desc;
+                            a.target = "_blank";
+                            a.rel = "noopener noreferrer";
+                            a.className = "text-link";
+
+                            text_content.appendChild(a);
+                        }
+                    });
 
                     if (i % 2 == 1) {
                         block_image.className = "block-image right";
@@ -140,24 +239,20 @@
                     }
                 });
 
-                const links = document.createElement("div");
-                links.className = "link-row";
-                project.appendChild(links);
+                const github_link = document.createElement("div");
+                github_link.className = "link-row";
+                project.appendChild(github_link);
 
-                item.links.forEach(link_json => {
-                    const entrance = document.createElement("div");
-                    links.appendChild(entrance);
-
-                    const link = document.createElement("a");
-                    link.href = link_json.link;
-                    link.target = "_blank";
-                    link.rel = "noopener noreferrer";
-                    link.className = "text-link";
-                    link.textContent = link_json.desc;
-                    entrance.appendChild(link);
-                });
+                const link = document.createElement("a");
+                link.href = item.github;
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+                link.className = "text-link";
+                link.textContent = data.github_desc;
+                github_link.appendChild(link);
             });
             restoreScroll();
+            setupObserver();
         }
 
         loadData();
