@@ -11,16 +11,16 @@
 <body>
     <aside class="sidebar">
         <div id="sidebar-top">
-            <div class="dropdown">
-                <button id="dropdownButton">Sprache</button>
-
-                <div id="dropdownMenu" class="dropdown-content hidden">
-                    <div data-lang="de">Deutsch</div>
-                    <div data-lang="en">English</div>
-                </div>
-            </div>
             <h3 id="sidebar-top-head">Marvin Kraußer</h3>
             <div id="sidebar-top-content"></div>
+            <div class="lang-dropdown">
+                <button id="lang-button">Sprache</button>
+
+                <div id="lang-menu" class="lang-menu hidden">
+                    <div class="lang-item hidden" data-lang="de">de</div>
+                    <div class="lang-item hidden" data-lang="en">en</div>
+                </div>
+            </div>
         </div>
         <nav id="navbar">
         </nav>
@@ -41,10 +41,10 @@
         //document.cookie = "lang=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         let lang = getCookie("lang");
         console.log(lang);
-        if(lang == null){
+        if (lang == null) {
             lang = navigator.language.split("-")[0];
         }
-        if(lang == null){
+        if (lang != "en" && lang != "de") {
             lang = "en";
         }
         history.scrollRestoration = "manual";
@@ -125,7 +125,7 @@
             introduction.appendChild(content_introduction);
 
             const github_link_introduction = document.createElement("a");
-            github_link_introduction.textContent = data.github_desc;
+            github_link_introduction.textContent = "GitHub ↗"
             github_link_introduction.className = "text-link introduction";
             github_link_introduction.href = "https://github.com/marvinkrausser";
             github_link_introduction.target = "_blank";
@@ -282,23 +282,48 @@
 
         loadData();
 
-        const button = document.getElementById("dropdownButton");
-        const menu = document.getElementById("dropdownMenu");
+        const button = document.getElementById("lang-button");
+        const menu = document.getElementById("lang-menu");
+        const items = document.querySelectorAll(".lang-item");
 
-        // Dropdown öffnen/schließen
+        button.textContent = lang;
+
         button.addEventListener("click", () => {
+            items.forEach(item => {
+                if (item.dataset.lang != lang) {
+                    item.classList.toggle("hidden");
+                }
+            });
             menu.classList.toggle("hidden");
         });
 
-        // Auswahl verarbeiten
-        menu.addEventListener("click", (event) => {
-            const lang_selected = event.target.dataset.lang;
+        items.forEach(item => {
+            item.addEventListener("click", () => {
+                const lang_selected = item.dataset.lang;
 
-            if (lang_selected) {
-                document.cookie = `lang=${lang_selected}; path=/; max-age=3600`;
+                button.textContent = item.textContent;
+                menu.classList.add("hidden");
+                items.forEach(element => {
+                    element.classList.add("hidden");
+                });
+
+                setCookie("lang", lang_selected, "3600");
                 location.reload();
+            });
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!e.target.closest(".lang-dropdown")) {
+                menu.classList.add("hidden");
+                items.forEach(element => {
+                    element.classList.add("hidden");
+                });
             }
         });
+
+        function setCookie(name, value, maxAge) {
+            document.cookie = `${name}=${value}; path=/; max-age=${maxAge}`;
+        }
 
         function getCookie(name) {
             const cookies = document.cookie.split("; ");

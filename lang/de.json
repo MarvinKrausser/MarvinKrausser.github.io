@@ -15,7 +15,8 @@
       "tags": [
         "Python",
         "PyTorch",
-        "CUDA"
+        "CUDA",
+        "LaTeX"
       ],
       "github": "https://github.com/MarvinKrausser/pixelcnn",
       "blocks": [

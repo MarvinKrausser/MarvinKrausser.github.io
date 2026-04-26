@@ -10,12 +10,13 @@
   "content": [
     {
       "id": "pixelcnn",
-      "title": "PixelCNN Image Generation",
+      "title": "PixelCNN Generator",
       "description": "Autoregressive deep learning model based on PixelCNN for generative image synthesis using PyTorch.",
       "tags": [
         "Python",
         "PyTorch",
-        "CUDA"
+        "CUDA",
+        "LaTeX"
       ],
       "github": "https://github.com/MarvinKrausser/pixelcnn",
       "blocks": [
@@ -26,7 +27,7 @@
         },
         {
           "heading": "Seminar paper",
-          "text": "A --link-- and --link-- was created alongside the Project.",
+          "text": "A --link-- and --link-- were created alongside the Project.",
           "image": "images/seminararbeit.png",
           "links": [
             {
