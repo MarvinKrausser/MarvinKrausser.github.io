@@ -251,6 +251,7 @@ option {
     border: 1px solid var(--border);
     padding: 3px 10px;
     border-radius: 3px;
+    font-size: 14px;
 }
 
 .content-block {
