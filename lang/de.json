@@ -20,15 +20,13 @@
       "github": "https://github.com/MarvinKrausser/pixelcnn",
       "blocks": [
         {
-          "label": "",
           "heading": "Bildgenerierung mit Deep Learning",
           "text": "Das Modell verwendet Convolutional Neural Networks und Deep Learning zur Generierung von Bildern. Als Trainingsdatensatz wurden die MNIST-Digits verwendet und mittels CUDA auf einer GPU trainiert. Zusätzlich kann das Modell gezielt mit Klassen als Eingabe gesteuert werden, wie im Beispiel mit den Ziffern von 0 bis 9 gezeigt. Aufgrund begrenzter Ressourcen ist mein Modell auf Datensätze mit niedriger Komplexität beschränkt.",
           "image": "images/mnist_conditioned_gen_results_cropped.png"
         },
         {
-          "label": "",
           "heading": "Seminararbeit",
-          "text": "Das Projekt entstand begleitend zusätzlich zu einer --link-- und --link--.",
+          "text": "Zusätzlich zum Projekt wurde eine --link-- und ein --link-- erstellt.",
           "image": "images/seminararbeit.png",
           "links": [
             {
@@ -53,12 +51,12 @@
         "C#",
         ".net",
         "Unity",
-        "Docker"
+        "Docker",
+        "JSON"
       ],
       "github": "https://github.com/MarvinKrausser/BoardgameServer",
       "blocks": [
         {
-          "label": "",
           "heading": "Client",
           "text": "Der Game Client wurde mit Unity und C# entwickelt und basiert auf einem rundenbasierten Bewegungs- und Kartensystem. Sämtliche Designs wurden eigenständig erstellt. Auch ein --link-- und --link-- wurden erstellt.",
           "image": "images/boardgame_demo.png",
@@ -76,13 +74,11 @@
           ]
         },
         {
-          "label": "",
           "heading": "Server",
           "text": "Der Server wurde in C# mit einer mehrschichtigen Architektur umgesetzt, die eine klare Trennung zwischen WebSocket-Verbindungsmanagement und spielbezogener Logik (z. B. Spielerzuweisung und Sitzungsverwaltung) ermöglicht. Die Kommunikation zwischen Server und Client wurde durch ein definiertes JSON-Schema standardisiert, um die Kompatibilität und Austauschbarkeit der von verschiedenen Entwicklerteams entwickelten Komponenten sicherzustellen.",
           "image": "images/boardgame_connection.png"
         },
         {
-          "label": "",
           "heading": "KI-Spieler",
           "text": "Zusätzlich wurden mehrere regelbasierte KI-Spieler implementiert, die in das System integriert werden können. Die Codequalität wurde durch automatisierte Tests sichergestellt. Die Zusammenarbeit im Team erfolgte nach agilen Methoden (Scrum), und Server sowie KI wurden containerbasiert mit Docker bereitgestellt.",
           "image": "images/boardgame_ai.png"
@@ -95,7 +91,8 @@
       "description": "Singleplayer Towerdefense Game mit Editor entstanden im Rahmen einer Vorlesung als Einzelprojekt.",
       "tags": [
         "C#",
-        "Unity"
+        "Unity",
+        "JSON"
       ],
       "github": "https://github.com/MarvinKrausser/TowerDefenseGame",
       "links": [
@@ -107,10 +104,28 @@
       ],
       "blocks": [
         {
-          "label": "",
           "heading": "Singleplayer Tower Defense Game",
           "text": "Einfaches Tower-Defense-Spiel das von Grund auf mit eigenen Designs erstellt wurde. Nutzt den A*-Algorithmus zur Berechnung des Laufweges. Ein Demo-Build ist im Github Repository vorhanden.",
           "image": "images/towerdefense_demo.png"
+        }
+      ]
+    },
+    {
+      "id": "personal_website",
+      "title": "Portfolio Website",
+      "description": "Eine Website zum Vorzeigen meiner Projekte.",
+      "tags": [
+        "HTML",
+        "CSS",
+        "Javascript",
+        "JSON"
+      ],
+      "github": "https://github.com/MarvinKrausser/MarvinKrausser.github.io",
+      "blocks": [
+        {
+          "heading": "Technisches",
+          "text": "Die Website wurde mit HTML, CSS und JavaScript ohne die Verwendung externer Libraries entwickelt. Der Inhalt ist in sprachspezifischen JSON-Dateien gespeichert. Die Website wird dynamisch mithilfe von JavaScript aus der jeweiligen JSON-Datei generiert. Das Git-Repository verwendet einen Feature-Branch-Workflow, um die Korrektheit der Website auch während der Entwicklung sicherzustellen.",
+          "image": "images/personal_website.png"
         }
       ]
     }

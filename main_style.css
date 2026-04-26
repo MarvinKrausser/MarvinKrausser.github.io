@@ -62,6 +62,16 @@ a {
     width: 230px;
 }
 
+.hidden {
+  display: none;
+}
+
+.dropdown-content {
+  border: 1px solid #ccc;
+  background: white;
+  position: absolute;
+}
+
 #sidebar-top {
     padding: 36px 32px 28px;
     border-bottom: 1px solid var(--border);
@@ -149,13 +159,17 @@ a {
 
 #introduction {
     padding-top: 100px;
-    margin-left: 100px;
+    margin-left: 60px;
     margin-bottom: 150px;
     margin-right: 100px;
 }
 
 #introduction p {
     color: var(--text);
+}
+
+.text-link.introduction {
+    margin-top: 20px;
 }
 
 .project-section {
@@ -171,11 +185,12 @@ a {
 
 .section-header {
     margin: 80px;
-    margin-left: 100px;
+    margin-left: 60px;
+    margin-right: 40%;
 }
 
 .tags {
-    margin-top: 40px;
+    margin-top: 30px;
     display: flex;
     gap: 6px;
     flex-wrap: wrap;
@@ -201,12 +216,12 @@ a {
 }
 
 .block-image.right {
-    margin-right: 100px;
+    margin-right: 60px;
     border-left: 1px solid var(--border);
 }
 
 .block-image.left {
-    margin-left: 100px;
+    margin-left: 60px;
     border-right: 1px solid var(--border);
 }
 
@@ -219,13 +234,13 @@ a {
 }
 
 .block-text.right {
-    margin-right: 100px;
-    padding-left: 50px;
+    margin-right: 60px;
+    padding-left: 60px;
 }
 
 .block-text.left {
-    padding-right: 50px;
-    margin-left: 100px;
+    padding-right: 60px;
+    margin-left: 60px;
 }
 
 .text-content {
@@ -259,6 +274,6 @@ a {
 }
 
 .link-row {
-    margin: 100px;
+    margin: 60px;
     margin-top: 30px;
 }

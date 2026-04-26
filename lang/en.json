@@ -1,0 +1,133 @@
+{
+  "title_website": "Marvin's Portfolio",
+  "title_introduction": "Hello!",
+  "content_introduction": "I am studying Media Informatics for my Bachelor's degree and have gained practical experience in various projects as part of my studies. I especially enjoy working on projects where I can explore and deepen new technologies, currently with a focus on machine learning.",
+  "status": "Student B.Sc.",
+  "profession": "Media Informatics",
+  "workplace": "Ulm University",
+  "github_desc": "View on GitHub ↗",
+  "navbar_group": "Projects",
+  "content": [
+    {
+      "id": "pixelcnn",
+      "title": "PixelCNN Image Generation",
+      "description": "Autoregressive deep learning model based on PixelCNN for generative image synthesis using PyTorch.",
+      "tags": [
+        "Python",
+        "PyTorch",
+        "CUDA"
+      ],
+      "github": "https://github.com/MarvinKrausser/pixelcnn",
+      "blocks": [
+        {
+          "heading": "Image generation with Deep Learning",
+          "text": "The model uses Convolutional Neural Networks and deep learning to generate images. The MNIST digits dataset was used for training, and the model was trained on a GPU using CUDA. Additionally, the model can be specifically controlled with class inputs, as shown in the example with digits from 0 to 9. Due to limited resources, my model is restricted to low-complexity datasets.",
+          "image": "images/mnist_conditioned_gen_results_cropped.png"
+        },
+        {
+          "heading": "Seminar paper",
+          "text": "A --link-- and --link-- was created alongside the Project.",
+          "image": "images/seminararbeit.png",
+          "links": [
+            {
+              "id": "seminararbeit",
+              "link": "pdfs/Seminararbeit.pdf",
+              "desc": "Seminar paper ↗"
+            },
+            {
+              "id": "seminarvortrag",
+              "link": "pdfs/Seminararbeit_Vortrag.pdf",
+              "desc": "Presentation ↗"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boardgame",
+      "title": "Online Multiplayer Game",
+      "description": "An online multiplayer board game with server, game client, and AI players developed as a group project with five other students.",
+      "tags": [
+        "C#",
+        ".net",
+        "Unity",
+        "Docker",
+        "JSON"
+      ],
+      "github": "https://github.com/MarvinKrausser/BoardgameServer",
+      "blocks": [
+        {
+          "heading": "Client",
+          "text": "The game client was developed using Unity and C# and is based on a turn-based movement and card system. All designs were created independently. A --link-- and --link-- were also created.",
+          "image": "images/boardgame_demo.png",
+          "links": [
+            {
+              "id": "entwicklerhandbuch",
+              "link": "pdfs/Team23_Entwicklerhandbuch_BoC.pdf",
+              "desc": "Developer handbook ↗"
+            },
+            {
+              "id": "benutzerhandbuch",
+              "link": "pdfs/Team23_Benutzerhandbuch_BoC.pdf",
+              "desc": "User manual ↗"
+            }
+          ]
+        },
+        {
+          "heading": "Server",
+          "text": "The server was implemented in C# using a layered architecture that ensures a clear separation between WebSocket connection management and game-related logic (e.g. player assignment and session management). Communication between server and client was standardized using a defined JSON schema to ensure compatibility and interchangeability of components developed by different teams.",
+          "image": "images/boardgame_connection.png"
+        },
+        {
+          "heading": "AI Players",
+          "text": "In addition, several rule-based AI players were implemented that can be integrated into the system. Code quality was ensured through automated tests. Team collaboration followed agile methods (Scrum), and both server and AI were deployed using Docker containers.",
+          "image": "images/boardgame_ai.png"
+        }
+      ]
+    },
+    {
+      "id": "towerdefense",
+      "title": "Tower Defense Game",
+      "description": "Singleplayer tower defense game with editor developed as an individual project within a university course.",
+      "tags": [
+        "C#",
+        "Unity",
+        "JSON"
+      ],
+      "github": "https://github.com/MarvinKrausser/TowerDefenseGame",
+      "links": [
+        {
+          "id": "github",
+          "link": "https://github.com/MarvinKrausser/TowerDefenseGame",
+          "desc": "View on GitHub ↗"
+        }
+      ],
+      "blocks": [
+        {
+          "heading": "Singleplayer Tower Defense Game",
+          "text": "Simple tower defense game created entirely from scratch with custom designs. Uses the A* algorithm to calculate the pathfinding route. A demo build is available in the GitHub repository.",
+          "image": "images/towerdefense_demo.png"
+        }
+      ]
+    },
+    {
+      "id": "personal_website",
+      "title": "Portfolio Website",
+      "description": "A website to showcase my projects.",
+      "tags": [
+        "HTML",
+        "CSS",
+        "Javascript",
+        "JSON"
+      ],
+      "github": "https://github.com/MarvinKrausser/MarvinKrausser.github.io",
+      "blocks": [
+        {
+          "heading": "Technical details",
+          "text": "The website was developed using HTML, CSS, and JavaScript without the use of external libraries. The content is stored in language-specific JSON files. The website is dynamically generated using JavaScript based on the respective JSON file. The Git repository follows a feature-branch workflow to ensure correctness of the website even during development.",
+          "image": "images/personal_website.png"
+        }
+      ]
+    }
+  ]
+}

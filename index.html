@@ -11,6 +11,14 @@
 <body>
     <aside class="sidebar">
         <div id="sidebar-top">
+            <div class="dropdown">
+                <button id="dropdownButton">Sprache</button>
+
+                <div id="dropdownMenu" class="dropdown-content hidden">
+                    <div data-lang="de">Deutsch</div>
+                    <div data-lang="en">English</div>
+                </div>
+            </div>
             <h3 id="sidebar-top-head">Marvin Kraußer</h3>
             <div id="sidebar-top-content"></div>
         </div>
@@ -30,6 +38,15 @@
     </div>
 
     <script>
+        //document.cookie = "lang=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        let lang = getCookie("lang");
+        console.log(lang);
+        if(lang == null){
+            lang = navigator.language.split("-")[0];
+        }
+        if(lang == null){
+            lang = "en";
+        }
         history.scrollRestoration = "manual";
 
         function saveScroll() {
@@ -76,7 +93,7 @@
         }
 
         async function loadData() {
-            const response = await fetch("./lang/de.json");
+            const response = await fetch(`./lang/${lang}.json`);
             const data = await response.json();
 
             const website_title = document.getElementById("website_title");
@@ -106,6 +123,14 @@
             const content_introduction = document.createElement("p");
             content_introduction.textContent = data.content_introduction;
             introduction.appendChild(content_introduction);
+
+            const github_link_introduction = document.createElement("a");
+            github_link_introduction.textContent = data.github_desc;
+            github_link_introduction.className = "text-link introduction";
+            github_link_introduction.href = "https://github.com/marvinkrausser";
+            github_link_introduction.target = "_blank";
+            github_link_introduction.rel = "noopener noreferrer";
+            introduction.appendChild(github_link_introduction);
 
             const navbar_item = document.createElement("li");
             navbar_item.className = "navbar-item";
@@ -256,6 +281,35 @@
         }
 
         loadData();
+
+        const button = document.getElementById("dropdownButton");
+        const menu = document.getElementById("dropdownMenu");
+
+        // Dropdown öffnen/schließen
+        button.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+
+        // Auswahl verarbeiten
+        menu.addEventListener("click", (event) => {
+            const lang_selected = event.target.dataset.lang;
+
+            if (lang_selected) {
+                document.cookie = `lang=${lang_selected}; path=/; max-age=3600`;
+                location.reload();
+            }
+        });
+
+        function getCookie(name) {
+            const cookies = document.cookie.split("; ");
+
+            for (let c of cookies) {
+                const [key, value] = c.split("=");
+                if (key === name) return value;
+            }
+
+            return null;
+        }
     </script>
 
 </body>
