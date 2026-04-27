@@ -284,6 +284,10 @@ option {
     margin-left: 230px;
 }
 
+.website-config {
+    margin-bottom: 15px;
+}
+
 #introduction {
     padding-top: 100px;
     margin-left: var(--margin-main-content);
