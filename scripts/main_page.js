@@ -1,5 +1,4 @@
 let lang = getCookie("lang");
-console.log(lang);
 if (lang == null) {
     lang = navigator.language.split("-")[0];
 }
@@ -156,7 +155,7 @@ async function loadData() {
 
             const block_text = document.createElement("div");
 
-            const text_title = document.createElement("h3");
+            const text_title = document.createElement("h2");
             text_title.textContent = content.heading;
             block_text.appendChild(text_title);
 
