@@ -18,7 +18,7 @@
     --text: #FFFFFF;
     --surface: #3e3261;
     --muted: #C5C1D1;
-    --border: #20192a;
+    --border: #726684;
 }
 
 html {
@@ -264,7 +264,6 @@ option {
     margin-top: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 #sidebar-bottom {

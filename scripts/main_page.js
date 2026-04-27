@@ -5,6 +5,27 @@ if (lang == null) {
 if (lang != "en" && lang != "de") {
     lang = "en";
 }
+
+const toggle = document.getElementById("themeToggle");
+
+toggle.addEventListener("change", () => {
+    document.documentElement.classList.toggle("dark", toggle.checked);
+    if (toggle.checked) {
+        setCookie("theme", "dark", 60 * 60 * 24 * 7);
+    }
+    else {
+        setCookie("theme", "light", 60 * 60 * 24 * 7);
+    }
+
+});
+
+const theme = getCookie("theme");
+
+if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+    toggle.checked = true;
+}
+
 history.scrollRestoration = "manual";
 
 function saveScroll() {
@@ -287,24 +308,4 @@ function getCookie(name) {
     }
 
     return null;
-}
-
-const toggle = document.getElementById("themeToggle");
-
-toggle.addEventListener("change", () => {
-    document.documentElement.classList.toggle("dark", toggle.checked);
-    if (toggle.checked) {
-        setCookie("theme", "dark", 60 * 60 * 24 * 7);
-    }
-    else {
-        setCookie("theme", "light", 60 * 60 * 24 * 7);
-    }
-
-});
-
-const theme = getCookie("theme");
-
-if (theme === "dark") {
-    document.documentElement.classList.add("dark");
-    toggle.checked = true;
 }
