@@ -92,7 +92,7 @@ async function loadData() {
     github_link_introduction.rel = "noopener noreferrer";
     introduction.appendChild(github_link_introduction);
 
-    create_navbar_entry(navbar, { id: "introduction", title: data.title_introduction }, 0);
+    create_navbar_entry(navbar, data.title_introduction, "introduction", 0);
 
     const navbar_group = document.createElement("li");
     navbar_group.className = "navbar-group";
@@ -107,7 +107,7 @@ async function loadData() {
         project.setAttribute("data-nav", item.id);
         container.appendChild(project);
 
-        create_navbar_entry(navbar, item, j + 1);
+        create_navbar_entry(navbar, item.title, item.id, j + 1);
 
         const header = document.createElement("div");
         header.className = "section-header";
@@ -254,23 +254,23 @@ document.addEventListener("click", (e) => {
     }
 });
 
-function create_navbar_entry(navbar, item, j) {
+function create_navbar_entry(navbar, title, id, j) {
     const navbar_item = document.createElement("li");
     navbar_item.className = "navbar-item";
     navbar.appendChild(navbar_item);
 
     const navbar_link = document.createElement("a");
     navbar_link.className = "nav-link";
-    navbar_link.href = `#${item.id}`;
+    navbar_link.href = `#${id}`;
 
     const idx = document.createElement("span");
     idx.className = "idx";
     idx.textContent = String(j).padStart(2, "0") + "\u00A0\u00A0\u00A0";
     navbar_link.appendChild(idx);
 
-    const text = document.createTextNode(item.title);
+    const text = document.createTextNode(title);
     navbar_link.appendChild(text);
-    navbar_link.dataset.target = item.id;
+    navbar_link.dataset.target = id;
     navbar_item.appendChild(navbar_link);
 }
 
