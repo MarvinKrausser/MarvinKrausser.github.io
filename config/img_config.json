@@ -1,0 +1,39 @@
+{
+    "images": [
+        {
+            "id": "pixelcnn_1",
+            "image": "images/mnist_conditioned_gen_results_cropped.png",
+            "image_pos": "center"
+        },
+        {
+            "id": "pixelcnn_2",
+            "image": "images/seminararbeit.png",
+            "image_pos": "left"
+        },
+        {
+            "id": "boardgame_1",
+            "image": "images/boardgame_demo.png",
+            "image_pos": "center"
+        },
+        {
+            "id": "boardgame_2",
+            "image": "images/boardgame_connection.png",
+            "image_pos": "center"
+        },
+        {
+            "id": "boardgame_3",
+            "image": "images/boardgame_ai.png",
+            "image_pos": "left"
+        },
+        {
+            "id": "towerdefense_1",
+            "image": "images/towerdefense_demo.png",
+            "image_pos": "center"
+        },
+        {
+            "id": "personal_website_1",
+            "image": "images/personal_website.png",
+            "image_pos": "left"
+        }
+    ]
+}

@@ -23,12 +23,12 @@
         {
           "heading": "Image generation with Deep Learning",
           "text": "The model uses Convolutional Neural Networks and deep learning to generate images. The MNIST digits dataset was used for training, and the model was trained on a GPU using CUDA. Additionally, the model can be specifically controlled with class inputs, as shown in the example with digits from 0 to 9. Due to limited resources, my model is restricted to low-complexity datasets.",
-          "image": "images/mnist_conditioned_gen_results_cropped.png"
+          "image": "pixelcnn_1"
         },
         {
           "heading": "Seminar paper",
           "text": "A --link-- and --link-- were created alongside the Project.",
-          "image": "images/seminararbeit.png",
+          "image": "pixelcnn_2",
           "links": [
             {
               "id": "seminararbeit",
@@ -60,7 +60,7 @@
         {
           "heading": "Client",
           "text": "The game client was developed using Unity and C# and is based on a turn-based movement and card system. All designs were created independently. A --link-- and --link-- were also created.",
-          "image": "images/boardgame_demo.png",
+          "image": "boardgame_1",
           "links": [
             {
               "id": "entwicklerhandbuch",
@@ -77,12 +77,12 @@
         {
           "heading": "Server",
           "text": "The server was implemented in C# using a layered architecture that ensures a clear separation between WebSocket connection management and game-related logic (e.g. player assignment and session management). Communication between server and client was standardized using a defined JSON schema to ensure compatibility and interchangeability of components developed by different teams.",
-          "image": "images/boardgame_connection.png"
+          "image": "boardgame_2"
         },
         {
           "heading": "AI Players",
           "text": "In addition, several rule-based AI players were implemented that can be integrated into the system. Code quality was ensured through automated tests. Team collaboration followed agile methods (Scrum), and both server and AI were deployed using Docker containers.",
-          "image": "images/boardgame_ai.png"
+          "image": "boardgame_3"
         }
       ]
     },
@@ -107,7 +107,7 @@
         {
           "heading": "Singleplayer Tower Defense Game",
           "text": "Simple tower defense game created entirely from scratch with custom designs. Uses the A* algorithm to calculate the pathfinding route. A demo build is available in the GitHub repository.",
-          "image": "images/towerdefense_demo.png"
+          "image": "towerdefense_1"
         }
       ]
     },
@@ -126,7 +126,7 @@
         {
           "heading": "Technical details",
           "text": "The website was developed using HTML, CSS, and JavaScript without the use of external libraries. The content is stored in language-specific JSON files. The website is dynamically generated using JavaScript based on the respective JSON file. The Git repository follows a feature-branch workflow to ensure correctness of the website even during development.",
-          "image": "images/personal_website.png"
+          "image": "personal_website_1"
         }
       ]
     }
