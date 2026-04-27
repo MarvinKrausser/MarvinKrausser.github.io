@@ -44,7 +44,7 @@ function setupObserver() {
         });
     }, {
         threshold: 0,
-        rootMargin: "0px 0px -80% 0px"
+        rootMargin: "-10% 0px -80% 0px"
     });
 
     sections.forEach(section => observer.observe(section));
