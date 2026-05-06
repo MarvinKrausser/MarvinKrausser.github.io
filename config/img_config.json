@@ -2,37 +2,52 @@
     "images": [
         {
             "id": "pixelcnn_1",
-            "image": "images/mnist_conditioned_gen_results_cropped.png",
+            "image": "images_jpg/mnist_conditioned_gen_results_cropped.jpg",
             "image_pos": "center"
         },
         {
             "id": "pixelcnn_2",
-            "image": "images/seminararbeit.png",
+            "image": "images_jpg/seminararbeit.jpg",
             "image_pos": "left"
         },
         {
             "id": "boardgame_1",
-            "image": "images/boardgame_demo.png",
+            "image": "images_jpg/boardgame_demo.jpg",
             "image_pos": "center"
         },
         {
             "id": "boardgame_2",
-            "image": "images/boardgame_connection.png",
+            "image": "images_jpg/boardgame_connection.jpg",
             "image_pos": "center"
         },
         {
             "id": "boardgame_3",
-            "image": "images/boardgame_ai.png",
+            "image": "images_jpg/boardgame_ai.jpg",
             "image_pos": "left"
         },
         {
             "id": "towerdefense_1",
-            "image": "images/towerdefense_demo.png",
+            "image": "images_jpg/towerdefense_demo.jpg",
             "image_pos": "center"
         },
         {
             "id": "personal_website_1",
-            "image": "images/personal_website.png",
+            "image": "images_jpg/personal_website.jpg",
+            "image_pos": "left"
+        },
+        {
+            "id": "cnn_website_1",
+            "image": "images_jpg/cnn_website.jpg",
+            "image_pos": "center"
+        },
+        {
+            "id": "cnn_website_2",
+            "image": "images_jpg/cnn_server.jpg",
+            "image_pos": "left"
+        },
+        {
+            "id": "cnn_website_3",
+            "image": "images_jpg/cnn_website_cnn.jpg",
             "image_pos": "left"
         }
     ]

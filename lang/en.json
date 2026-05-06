@@ -9,6 +9,50 @@
   "navbar_group": "Projects",
   "content": [
     {
+      "id": "cnn_website",
+      "title": "CNN Website",
+      "description": "The website uses a CNN for the classification of bird species.",
+      "tags": [
+        "React",
+        "PyTorch",
+        "NGINX",
+        "Caddy",
+        "Docker Compose"
+      ],
+      "github": "https://github.com/MarvinKrausser/CNN_Website",
+      "blocks": [
+        {
+          "heading": "Frontend",
+          "text": "The --link-- is online. The frontend is implemented with React and enables uploading images as well as displaying classification results. It is designed responsively and adapts to different screen sizes, making it easy to use on mobile phones as well.",
+          "image": "cnn_website_1",
+          "links": [
+            {
+              "id": "website",
+              "link": "https://marvinkrausser.com/bird_cnn",
+              "desc": "Website ↗"
+            }
+          ]
+        },
+        {
+          "heading": "Backend",
+          "text": "The backend is implemented in a containerized setup using Docker and is managed via Docker Compose. Caddy acts as a central router for all requests and automatically provides SSL certificates via Let's Encrypt. The React application runs behind an NGINX router, while the API is implemented as a FastAPI server. The --link-- is accessible via a subdomain and is forwarded by Caddy to the FastAPI server.",
+          "image": "cnn_website_2",
+          "links": [
+            {
+              "id": "subdomain",
+              "link": "https://api.marvinkrausser.com/docs",
+              "desc": "API ↗"
+            }
+          ]
+        },
+        {
+          "heading": "CNN",
+          "text": "The CNN classifies 7 bird species from images. It uses skip connections, dropout, and batch normalization to make training more stable and reduce overfitting.",
+          "image": "cnn_website_3"
+        }
+      ]
+    },
+    {
       "id": "pixelcnn",
       "title": "PixelCNN Generator",
       "description": "Autoregressive deep learning model based on PixelCNN for generative image synthesis using PyTorch.",

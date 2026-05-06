@@ -9,6 +9,50 @@
   "navbar_group": "Projekte",
   "content": [
     {
+      "id": "cnn_website",
+      "title": "CNN Website",
+      "description": "Die Website nutzt eine CNN zur spezifizierung von Vogelarten.",
+      "tags": [
+        "React",
+        "PyTorch",
+        "NGINX",
+        "Caddy",
+        "Docker Compose"
+      ],
+      "github": "https://github.com/MarvinKrausser/CNN_Website",
+      "blocks": [
+        {
+          "heading": "Frontend",
+          "text": "Die --link-- ist online. Das Frontend ist mit React umgesetzt und ermöglicht das Hochladen von Bildern sowie die Anzeige der Klassifikationsergebnisse. Es ist responsiv gestaltet und passt sich verschiedenen Bildschirmgrößen an, sodass es auch auf dem Handy gut nutzbar ist.",
+          "image": "cnn_website_1",
+          "links": [
+            {
+              "id": "website",
+              "link": "https://marvinkrausser.com/bird_cnn",
+              "desc": "Website ↗"
+            }
+          ]
+        },
+        {
+          "heading": "Backend",
+          "text": "Das Backend ist containerisiert mit Docker umgesetzt und wird über Docker Compose verwaltet. Caddy fungiert als zentraler Router für alle Anfragen und stellt über Let's Encrypt automatisch SSL-Zertifikate bereit. Die React-Anwendung läuft hinter einem NGINX-Router, während die API als FastAPI-Server implementiert ist. Die --link-- ist über eine Subdomain erreichbar und wird über Caddy an den FastAPI-Server weitergeleitet.",
+          "image": "cnn_website_2",
+          "links": [
+            {
+              "id": "subdomain",
+              "link": "https://api.marvinkrausser.com/docs",
+              "desc": "API ↗"
+            }
+          ]
+        },
+        {
+          "heading": "CNN",
+          "text": "Das CNN klassifiziert 7 Vogelarten aus Bildern. Es verwendet Skip Connections, Dropout und Batch Normalization, um das Training stabiler zu machen und Overfitting zu reduzieren.",
+          "image": "cnn_website_3"
+        }
+      ]
+    },
+    {
       "id": "pixelcnn",
       "title": "PixelCNN Bildgeneration",
       "description": "Autoregressives Deep Learning-Modell basierend auf PixelCNN zur generativen Bildsynthese mit PyTorch.",
