@@ -86,6 +86,20 @@ async function loadData() {
     const sidebar_top = document.getElementById("sidebar-top-content");
 
     const navbar_mobile = document.getElementById("navbar-mobile");
+    const button_navbar_mobile = document.createElement("button");
+    const button_mobile = document.getElementById("button-mobile");
+    button_navbar_mobile.textContent = "";
+    button_mobile.textContent = "";
+    button_navbar_mobile.classList = "button-mobile";
+    navbar_mobile.appendChild(button_navbar_mobile);
+    button_navbar_mobile.addEventListener("click", () => {
+        navbar_mobile.classList.toggle("inactive");
+        button_mobile.classList.toggle("inactive");
+    });
+    button_mobile.addEventListener("click", () => {
+        navbar_mobile.classList.toggle("inactive");
+        button_mobile.classList.toggle("inactive");
+    });
 
     const sidebar_top_status = document.createElement("p");
     sidebar_top_status.textContent = data.status;
@@ -232,6 +246,8 @@ async function loadData() {
     });
     restoreScroll();
     setupObserver();
+
+    navbar_mobile.classList.add("inactive");
 }
 
 loadData();
@@ -299,10 +315,10 @@ function create_navbar_entry(navbar, navar_mobile, title, id, j) {
     create_navbar_entry_mobile(navar_mobile, title, id)
 }
 
-function create_navbar_entry_mobile(navar_mobile, title, id) {
+function create_navbar_entry_mobile(navbar_mobile, title, id) {
     const navbar_item = document.createElement("li");
     navbar_item.className = "navbar-item-mobile";
-    navar_mobile.appendChild(navbar_item);
+    navbar_mobile.appendChild(navbar_item);
 
     const navbar_link = document.createElement("a");
     navbar_link.className = "nav-link-mobile";
