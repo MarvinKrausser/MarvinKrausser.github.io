@@ -3,6 +3,13 @@
     --margin-main-content: 100px;
 }
 
+@media (max-width: 1000px) {
+    .main-content {
+        margin-left: var(--nav-mobile-w);
+        --margin-main-content: 10px;
+    }
+}
+
 #introduction {
     padding-top: 100px;
     margin-left: var(--margin-main-content);
