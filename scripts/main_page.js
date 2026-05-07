@@ -6,26 +6,6 @@ if (lang != "en" && lang != "de") {
     lang = "en";
 }
 
-const toggle = document.getElementById("themeToggle");
-
-toggle.addEventListener("change", () => {
-    document.documentElement.classList.toggle("dark", toggle.checked);
-    if (toggle.checked) {
-        setCookie("theme", "dark", 60 * 60 * 24 * 7);
-    }
-    else {
-        setCookie("theme", "light", 60 * 60 * 24 * 7);
-    }
-
-});
-
-const theme = getCookie("theme");
-
-if (theme === "dark") {
-    document.documentElement.classList.add("dark");
-    toggle.checked = true;
-}
-
 history.scrollRestoration = "manual";
 
 function saveScroll() {
@@ -86,12 +66,13 @@ async function loadData() {
     const sidebar_top = document.getElementById("sidebar-top-content");
 
     const navbar_mobile = document.getElementById("navbar-mobile");
+    const navbar_mobile_links = document.getElementById("navbar-mobile-links");
     const button_navbar_mobile = document.createElement("button");
     const button_mobile = document.getElementById("button-mobile");
     button_navbar_mobile.textContent = "";
     button_mobile.textContent = "";
     button_navbar_mobile.classList = "button-mobile";
-    navbar_mobile.appendChild(button_navbar_mobile);
+    navbar_mobile_links.appendChild(button_navbar_mobile);
     button_navbar_mobile.addEventListener("click", () => {
         navbar_mobile.classList.toggle("inactive");
         button_mobile.classList.toggle("inactive");
@@ -129,7 +110,7 @@ async function loadData() {
     github_link_introduction.rel = "noopener noreferrer";
     introduction.appendChild(github_link_introduction);
 
-    create_navbar_entry(navbar, navbar_mobile, data.title_introduction, "introduction", 0);
+    create_navbar_entry(navbar, navbar_mobile_links, data.title_introduction, "introduction", 0);
 
     const navbar_group = document.createElement("li");
     navbar_group.className = "navbar-group";
@@ -144,7 +125,7 @@ async function loadData() {
         project.setAttribute("data-nav", item.id);
         container.appendChild(project);
 
-        create_navbar_entry(navbar, navbar_mobile, item.title, item.id, j + 1);
+        create_navbar_entry(navbar, navbar_mobile_links, item.title, item.id, j + 1);
 
         const header = document.createElement("div");
         header.className = "section-header";
@@ -252,48 +233,73 @@ async function loadData() {
 
 loadData();
 
-const button = document.getElementById("lang-button");
-const menu = document.getElementById("lang-menu");
-const items = document.querySelectorAll(".lang-item");
-const dropdown = document.getElementById("lang-dropdown");
+function setupLangDropdown(buttonId, menuId, dropdownId, themeToggle) {
+    const toggle = document.getElementById(themeToggle);
 
-button.textContent = lang;
+    toggle.addEventListener("change", () => {
+        document.documentElement.classList.toggle("dark", toggle.checked);
+        if (toggle.checked) {
+            setCookie("theme", "dark", 60 * 60 * 24 * 7);
+        }
+        else {
+            setCookie("theme", "light", 60 * 60 * 24 * 7);
+        }
 
-button.addEventListener("click", () => {
-    items.forEach(item => {
-        item.classList.toggle("hidden", item.dataset.lang == lang);
     });
-    menu.classList.toggle("hidden");
-    dropdown.classList.toggle("show-border");
-});
 
-items.forEach(item => {
-    item.addEventListener("click", () => {
-        const lang_selected = item.dataset.lang;
+    const theme = getCookie("theme");
 
-        button.textContent = item.textContent;
-        menu.classList.add("hidden");
-        dropdown.classList.remove("show-border");
-        items.forEach(element => {
-            element.classList.add("hidden");
-        });
-
-        setCookie("lang", lang_selected, "3600");
-        location.reload();
-    });
-});
-
-document.addEventListener("click", (e) => {
-    if (!e.target.closest(".lang-dropdown")) {
-        menu.classList.add("hidden");
-        dropdown.classList.remove("show-border");
-        items.forEach(element => {
-            element.classList.add("hidden");
-        });
+    if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+        toggle.checked = true;
     }
-});
 
-function create_navbar_entry(navbar, navar_mobile, title, id, j) {
+    const button = document.getElementById(buttonId);
+    const menu = document.getElementById(menuId);
+    const dropdown = document.getElementById(dropdownId);
+    const items = menu.querySelectorAll(".lang-item");
+
+    button.textContent = lang;
+
+    button.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        items.forEach(item => {
+            item.classList.toggle("hidden", item.dataset.lang == lang);
+        });
+
+        menu.classList.toggle("hidden");
+        dropdown.classList.toggle("show-border");
+    });
+
+    items.forEach(item => {
+        item.addEventListener("click", () => {
+            const lang_selected = item.dataset.lang;
+
+            button.textContent = item.textContent;
+
+            menu.classList.add("hidden");
+            dropdown.classList.remove("show-border");
+
+            items.forEach(el => el.classList.add("hidden"));
+
+            setCookie("lang", lang_selected, "3600");
+            location.reload();
+        });
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(`#${dropdownId}`)) {
+            menu.classList.add("hidden");
+            dropdown.classList.remove("show-border");
+            items.forEach(el => el.classList.add("hidden"));
+        }
+    });
+}
+setupLangDropdown("lang-button", "lang-menu", "lang-dropdown", "themeToggle");
+setupLangDropdown("lang-button2", "lang-menu2", "lang-dropdown2", "themeToggle2");
+
+function create_navbar_entry(navbar, navbar_mobile_links, title, id, j) {
     const navbar_item = document.createElement("li");
     navbar_item.className = "navbar-item";
     navbar.appendChild(navbar_item);
@@ -312,13 +318,13 @@ function create_navbar_entry(navbar, navar_mobile, title, id, j) {
     navbar_link.dataset.target = id;
     navbar_item.appendChild(navbar_link);
 
-    create_navbar_entry_mobile(navar_mobile, title, id)
+    create_navbar_entry_mobile(navbar_mobile_links, title, id)
 }
 
-function create_navbar_entry_mobile(navbar_mobile, title, id) {
+function create_navbar_entry_mobile(navbar_mobile_links, title, id) {
     const navbar_item = document.createElement("li");
     navbar_item.className = "navbar-item-mobile";
-    navbar_mobile.appendChild(navbar_item);
+    navbar_mobile_links.appendChild(navbar_item);
 
     const navbar_link = document.createElement("a");
     navbar_link.className = "nav-link-mobile";

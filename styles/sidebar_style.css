@@ -226,7 +226,7 @@ input:checked+.slider:before {
     color: var(--text);
 }
 
-#lang-button {
+.lang-button {
     width: 40px;
     height: 30px;
     appearance: none;
@@ -243,7 +243,7 @@ input:checked+.slider:before {
     font-size: 14px;
 }
 
-#lang-button:hover {
+.lang-button:hover {
     border-color: var(--text);
     color: var(--text);
 }
