@@ -13,10 +13,80 @@
     background: var(--bg);
 }
 
+#navbar-mobile.inactive {
+    display: none;
+}
+
 @media (min-width: 1001px) {
     #navbar-mobile {
         display: none;
     }
+}
+
+#navbar-mobile-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.button-mobile {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: var(--surface);
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+}
+
+.button-mobile::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    background: var(--muted);
+    height: 2px;
+    width: 60%;
+    transform: translateX(-50%);
+}
+
+.button-mobile::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 65%;
+    background: var(--muted);
+    height: 2px;
+    width: 60%;
+    transform: translateX(-50%);
+}
+
+.button-mobile:hover::after {
+    background: var(--text);
+}
+
+.button-mobile:hover::before {
+    background: var(--text);
+}
+
+.button-mobile:hover {
+    width: 40px;
+    height: 40px;
+    background: var(--bg2);
+}
+
+#button-mobile {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    margin-top: 0;
+}
+
+#button-mobile.inactive {
+    display: none;
 }
 
 .navbar-item-mobile {
@@ -26,7 +96,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
 }
 
 .navbar-item-mobile:hover {
@@ -41,4 +110,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
