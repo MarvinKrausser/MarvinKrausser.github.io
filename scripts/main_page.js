@@ -85,6 +85,8 @@ async function loadData() {
     const navbar = document.getElementById("navbar");
     const sidebar_top = document.getElementById("sidebar-top-content");
 
+    const navbar_mobile = document.getElementById("navbar-mobile");
+
     const sidebar_top_status = document.createElement("p");
     sidebar_top_status.textContent = data.status;
     sidebar_top.appendChild(sidebar_top_status);
@@ -113,7 +115,7 @@ async function loadData() {
     github_link_introduction.rel = "noopener noreferrer";
     introduction.appendChild(github_link_introduction);
 
-    create_navbar_entry(navbar, data.title_introduction, "introduction", 0);
+    create_navbar_entry(navbar, navbar_mobile, data.title_introduction, "introduction", 0);
 
     const navbar_group = document.createElement("li");
     navbar_group.className = "navbar-group";
@@ -128,7 +130,7 @@ async function loadData() {
         project.setAttribute("data-nav", item.id);
         container.appendChild(project);
 
-        create_navbar_entry(navbar, item.title, item.id, j + 1);
+        create_navbar_entry(navbar, navbar_mobile, item.title, item.id, j + 1);
 
         const header = document.createElement("div");
         header.className = "section-header";
@@ -275,7 +277,7 @@ document.addEventListener("click", (e) => {
     }
 });
 
-function create_navbar_entry(navbar, title, id, j) {
+function create_navbar_entry(navbar, navar_mobile, title, id, j) {
     const navbar_item = document.createElement("li");
     navbar_item.className = "navbar-item";
     navbar.appendChild(navbar_item);
@@ -292,6 +294,20 @@ function create_navbar_entry(navbar, title, id, j) {
     const text = document.createTextNode(title);
     navbar_link.appendChild(text);
     navbar_link.dataset.target = id;
+    navbar_item.appendChild(navbar_link);
+
+    create_navbar_entry_mobile(navar_mobile, title, id)
+}
+
+function create_navbar_entry_mobile(navar_mobile, title, id) {
+    const navbar_item = document.createElement("li");
+    navbar_item.className = "navbar-item-mobile";
+    navar_mobile.appendChild(navbar_item);
+
+    const navbar_link = document.createElement("a");
+    navbar_link.className = "nav-link-mobile";
+    navbar_link.href = `#${id}`;
+    navbar_link.textContent = title;
     navbar_item.appendChild(navbar_link);
 }
 

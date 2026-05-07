@@ -1,0 +1,44 @@
+#navbar-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: var(--nav-mobile-w);
+    height: 100vh;
+    justify-content: flex-start;
+    align-items: center;
+    border-right: 1px solid var(--border);
+    gap: 10px;
+    background: var(--bg);
+}
+
+@media (min-width: 1001px) {
+    #navbar-mobile {
+        display: none;
+    }
+}
+
+.navbar-item-mobile {
+    width: 100%;
+    height: 80px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.navbar-item-mobile:hover {
+    background: var(--surface);
+}
+
+.nav-link-mobile {
+    text-align: center;
+    font-size: calc(var(--font-size) - 0.2rem);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
