@@ -12,6 +12,9 @@
     gap: 10px;
     background: var(--bg);
     transition: left 0.3s;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #navbar-mobile.inactive {

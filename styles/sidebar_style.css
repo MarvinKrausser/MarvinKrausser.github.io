@@ -72,6 +72,9 @@
     position: relative;
     font-weight: normal;
     margin: 5px 0px 5px 0px;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .nav-link {
@@ -194,6 +197,9 @@ input:checked+.slider:before {
     align-items: center;
     border: none;
     background: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .lang-dropdown.show-border {

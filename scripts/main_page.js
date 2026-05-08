@@ -66,11 +66,12 @@ async function loadData() {
     const sidebar_top = document.getElementById("sidebar-top-content");
 
     const navbar_mobile = document.getElementById("navbar-mobile");
-    const button_mobile2 = document.getElementById("button_mobile");
+    const button_mobile2 = document.getElementById("button-mobile");
 
     document.addEventListener("click", (e) => {
-        if (!e.target.closest("navbar-mobile") && button_mobile2.classList.contains("inactive")) {
+        if (!e.target.closest("#navbar-mobile") && !e.target.closest("#button-mobile") && !navbar_mobile.classList.contains("inactive")) {
             navbar_mobile.classList.add("inactive");
+            button_mobile2.classList.remove("inactive");
         }
     });
 
