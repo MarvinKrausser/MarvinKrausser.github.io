@@ -11,10 +11,11 @@
     border-right: 1px solid var(--border);
     gap: 10px;
     background: var(--bg);
+    transition: left 0.3s;
 }
 
 #navbar-mobile.inactive {
-    display: none;
+    left: calc(var(--nav-mobile-w) * (-1))
 }
 
 @media (min-width: 1001px) {
