@@ -75,6 +75,7 @@
     position: relative;
     font-weight: normal;
     margin: 5px 0px 5px 0px;
+    user-select: none;
 }
 
 .nav-link {
@@ -136,6 +137,7 @@
 /* Color Switch */
 
 .switch {
+    user-select: none;
     position: relative;
     display: inline-block;
     width: 52px;
@@ -191,6 +193,7 @@ input:checked+.slider:before {
 /* Language Dropdown*/
 
 .lang-dropdown {
+    user-select: none;
     display: flex;
     gap: 3px;
     width: 91px;
