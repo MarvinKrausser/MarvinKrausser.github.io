@@ -35,7 +35,7 @@
         },
         {
           "heading": "Backend",
-          "text": "Das Backend ist containerisiert mit Docker umgesetzt und wird über Docker Compose verwaltet. Caddy fungiert als zentraler Router für alle Anfragen und stellt über Let's Encrypt automatisch SSL-Zertifikate bereit. Die React-Anwendung läuft hinter einem NGINX-Router, während die API als FastAPI-Server implementiert ist. Die --link-- ist über eine Subdomain erreichbar und wird über Caddy an den FastAPI-Server weitergeleitet.",
+          "text": "Das Backend ist containerisiert mit Docker umgesetzt und wird über Docker Compose verwaltet. Die einzelnen Komponenten sind nur über das Docker-Netzwerk erreichbar. Caddy fungiert als zentraler Router für alle Anfragen und stellt über Let's Encrypt automatisch SSL-Zertifikate bereit. Die React-Anwendung läuft hinter einem NGINX-Router, während die API als FastAPI-Server implementiert ist. Die --link-- ist über eine Subdomain erreichbar und wird über Caddy an den FastAPI-Server weitergeleitet.",
           "image": "cnn_website_2",
           "links": [
             {
