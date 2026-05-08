@@ -7,8 +7,8 @@ services:
       - "8081"
     restart: unless-stopped
     networks:
-      - backend
+      - cnn_network
 
 networks:
-  backend:
-   name: portfolio
+  cnn_network:
+   external: true
