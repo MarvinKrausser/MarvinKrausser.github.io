@@ -69,6 +69,9 @@
 }
 
 .navbar-item {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     position: relative;
     font-weight: normal;
     margin: 5px 0px 5px 0px;
@@ -126,6 +129,9 @@
     border-bottom: 1px solid var(--border);
     padding-bottom: 20px;
     gap: 20px;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* Color Switch */
@@ -197,6 +203,9 @@ input:checked+.slider:before {
     align-items: center;
     border: none;
     background: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .lang-dropdown.show-border {
