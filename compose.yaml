@@ -6,6 +6,8 @@ services:
     expose:
       - "8081"
     restart: unless-stopped
+    networks:
+      - backend
 
 networks:
   backend:
