@@ -12,11 +12,8 @@
     gap: 10px;
     background: var(--bg);
     transition: left 0.3s;
-<<<<<<< HEAD
-=======
     -webkit-user-select: none;
     -ms-user-select: none;
->>>>>>> 42b4b12c3c410c9f7ae1bb9721b305f786481533
     user-select: none;
 }
 
