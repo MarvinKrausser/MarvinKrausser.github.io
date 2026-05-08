@@ -66,6 +66,14 @@ async function loadData() {
     const sidebar_top = document.getElementById("sidebar-top-content");
 
     const navbar_mobile = document.getElementById("navbar-mobile");
+    const button_mobile2 = document.getElementById("button_mobile");
+
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest("navbar-mobile") && button_mobile2.classList.contains("inactive")) {
+            navbar_mobile.classList.add("inactive");
+        }
+    });
+
     const navbar_mobile_links = document.getElementById("navbar-mobile-links");
     const button_navbar_mobile = document.createElement("button");
     const button_mobile = document.getElementById("button-mobile");
