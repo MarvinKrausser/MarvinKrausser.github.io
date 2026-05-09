@@ -4,6 +4,39 @@
 <head>
     <meta http-equiv="refresh" content="0; url=https://portfolio.marvinkrausser.com">
     <title>Redirecting...</title>
+    <style>
+        body {
+            background: black;
+            font-size: 2rem;
+        }
+
+        p {
+            color: rgb(179, 179, 179);
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            position: relative;
+            width: fit-content;
+            height: fit-content;
+        }
+
+        a::before{
+            content: "";
+            background: rgb(179, 179, 179);
+            position: absolute;
+            left: 0;
+            bottom: 1px;
+            border-radius: 16px;
+            height: 1px;
+            width: 100%;
+        }
+
+        a:hover::before {
+            background:  white;
+        }
+    </style>
 </head>
 
 <body>
