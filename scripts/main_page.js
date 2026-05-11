@@ -6,6 +6,8 @@ if (lang != "en" && lang != "de") {
     lang = "en";
 }
 
+document.documentElement.lang = lang;
+
 history.scrollRestoration = "manual";
 
 function saveScroll() {
