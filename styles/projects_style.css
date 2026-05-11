@@ -1,19 +1,25 @@
 .main-content {
     margin-left: var(--nav-w);
-    --margin-main-content: 100px;
+    --margin-main-content: 7vw;
     --margin-top: 100px;
+}
+
+@media (max-width: 1500px) {
+    .main-content {
+        --margin-main-content: 4vw;
+    }
 }
 
 @media (max-width: 1000px) {
     .main-content {
         margin-left: 0;
         --margin-main-content: 20px;
-        --margin-top: 30px;
+        --margin-top: 50px;
     }
 }
 
 #introduction {
-    padding-top: var(--margin-top);
+    margin-top: var(--margin-top);
     margin-left: var(--margin-main-content);
     margin-bottom: 60px;
     margin-right: var(--margin-main-content);
@@ -29,7 +35,6 @@
 
 .project-section {
     border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
 }
 
 .content-block {
@@ -116,11 +121,6 @@
     display: inline;
 }
 
-.text-content a {
-    font-size: var(--font-size);
-    font-weight: normal;
-}
-
 .text-link:hover {
     border-color: var(--text);
 }
@@ -128,13 +128,31 @@
 .text-link {
     display: inline-block;
     width: fit-content;
-    font-size: 0.90rem;
-    font-weight: 500;
+    font-size: var(--text-size);
+    font-weight: bolder;
     text-decoration: none;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 2px;
     transition: border-color 0.15s;
     white-space: nowrap;
+    position: relative;
+}
+
+.text-link:hover {
+    color: var(--text);
+}
+
+.text-link::before{
+    content: "";
+    width: 100%;
+    height: 1.2px;
+    background: var(--muted);
+    left: 0;
+    bottom: 2px;
+    position: absolute;
+    border-radius: 16px;
+}
+
+.text-link:hover::before {
+    background: var(--text);
 }
 
 .link-row {

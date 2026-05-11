@@ -6,6 +6,8 @@ if (lang != "en" && lang != "de") {
     lang = "en";
 }
 
+document.documentElement.lang = lang;
+
 history.scrollRestoration = "manual";
 
 function saveScroll() {
@@ -80,7 +82,7 @@ async function loadData() {
     const button_mobile = document.getElementById("button-mobile");
     button_navbar_mobile.textContent = "";
     button_mobile.textContent = "";
-    button_navbar_mobile.classList = "button-mobile";
+    button_navbar_mobile.classList = "button-mobile navbar";
     navbar_mobile_links.appendChild(button_navbar_mobile);
     button_navbar_mobile.addEventListener("click", () => {
         navbar_mobile.classList.toggle("inactive");
