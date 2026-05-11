@@ -9,6 +9,7 @@ services:
     networks:
       - cnn_network
     pull_policy: never
+    container_name: portfolio_website
 
 networks:
   cnn_network:
