@@ -8,6 +8,79 @@ if (lang != "en" && lang != "de") {
 
 document.documentElement.lang = lang;
 
+function setupLangDropdown(buttonId, menuId, dropdownId, themeToggle, themeToggleOthers) {
+    const toggle = document.getElementById(themeToggle);
+    const toggleElements = themeToggleOthers.map(id => document.getElementById(id));
+
+    toggle.addEventListener("change", () => {
+        document.documentElement.classList.toggle("dark", toggle.checked);
+        if (toggle.checked) {
+            setCookie("theme", "dark", 60 * 60 * 24 * 7);
+            toggleElements.forEach(element => {
+                element.checked = true;
+            });
+        }
+        else {
+            setCookie("theme", "light", 60 * 60 * 24 * 7);
+            toggleElements.forEach(element => {
+                element.checked = false;
+            });
+        }
+
+    });
+
+    const theme = getCookie("theme");
+
+    if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+        toggle.checked = true;
+    }
+
+    const button = document.getElementById(buttonId);
+    const menu = document.getElementById(menuId);
+    const dropdown = document.getElementById(dropdownId);
+    const items = menu.querySelectorAll(".lang-item");
+
+    button.textContent = lang;
+
+    button.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        items.forEach(item => {
+            item.classList.toggle("hidden", item.dataset.lang == lang);
+        });
+
+        menu.classList.toggle("hidden");
+        dropdown.classList.toggle("show-border");
+    });
+
+    items.forEach(item => {
+        item.addEventListener("click", () => {
+            const lang_selected = item.dataset.lang;
+
+            button.textContent = item.textContent;
+
+            menu.classList.add("hidden");
+            dropdown.classList.remove("show-border");
+
+            items.forEach(el => el.classList.add("hidden"));
+
+            setCookie("lang", lang_selected, "3600");
+            location.reload();
+        });
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(`#${dropdownId}`)) {
+            menu.classList.add("hidden");
+            dropdown.classList.remove("show-border");
+            items.forEach(el => el.classList.add("hidden"));
+        }
+    });
+}
+setupLangDropdown("lang-button", "lang-menu", "lang-dropdown", "themeToggle", ["themeToggle2"]);
+setupLangDropdown("lang-button2", "lang-menu2", "lang-dropdown2", "themeToggle2", ["themeToggle"]);
+
 history.scrollRestoration = "manual";
 
 function saveScroll() {
@@ -243,79 +316,6 @@ async function loadData() {
 }
 
 loadData();
-
-function setupLangDropdown(buttonId, menuId, dropdownId, themeToggle, themeToggleOthers) {
-    const toggle = document.getElementById(themeToggle);
-    const toggleElements = themeToggleOthers.map(id => document.getElementById(id));
-
-    toggle.addEventListener("change", () => {
-        document.documentElement.classList.toggle("dark", toggle.checked);
-        if (toggle.checked) {
-            setCookie("theme", "dark", 60 * 60 * 24 * 7);
-            toggleElements.forEach(element => {
-                element.checked = true;
-            });
-        }
-        else {
-            setCookie("theme", "light", 60 * 60 * 24 * 7);
-            toggleElements.forEach(element => {
-                element.checked = false;
-            });
-        }
-
-    });
-
-    const theme = getCookie("theme");
-
-    if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-        toggle.checked = true;
-    }
-
-    const button = document.getElementById(buttonId);
-    const menu = document.getElementById(menuId);
-    const dropdown = document.getElementById(dropdownId);
-    const items = menu.querySelectorAll(".lang-item");
-
-    button.textContent = lang;
-
-    button.addEventListener("click", (e) => {
-        e.stopPropagation();
-
-        items.forEach(item => {
-            item.classList.toggle("hidden", item.dataset.lang == lang);
-        });
-
-        menu.classList.toggle("hidden");
-        dropdown.classList.toggle("show-border");
-    });
-
-    items.forEach(item => {
-        item.addEventListener("click", () => {
-            const lang_selected = item.dataset.lang;
-
-            button.textContent = item.textContent;
-
-            menu.classList.add("hidden");
-            dropdown.classList.remove("show-border");
-
-            items.forEach(el => el.classList.add("hidden"));
-
-            setCookie("lang", lang_selected, "3600");
-            location.reload();
-        });
-    });
-
-    document.addEventListener("click", (e) => {
-        if (!e.target.closest(`#${dropdownId}`)) {
-            menu.classList.add("hidden");
-            dropdown.classList.remove("show-border");
-            items.forEach(el => el.classList.add("hidden"));
-        }
-    });
-}
-setupLangDropdown("lang-button", "lang-menu", "lang-dropdown", "themeToggle", ["themeToggle2"]);
-setupLangDropdown("lang-button2", "lang-menu2", "lang-dropdown2", "themeToggle2", ["themeToggle"]);
 
 function create_navbar_entry(navbar, navbar_mobile_links, title, id, j) {
     const navbar_item = document.createElement("li");
