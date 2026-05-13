@@ -14,7 +14,7 @@
     --padding: 30px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1000px) or (max-height: 700px) {
     .sidebar {
         display: none;
     }

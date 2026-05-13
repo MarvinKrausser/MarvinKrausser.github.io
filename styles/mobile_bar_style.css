@@ -18,20 +18,28 @@
 }
 
 #navbar-mobile::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--bg);
-  opacity: 0.992;
-  z-index: -1;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--bg);
+    opacity: 0.992;
+    z-index: -1;
 }
 
 #navbar-mobile.inactive {
     left: calc(var(--nav-mobile-w) * (-1))
 }
 
-@media (min-width: 1001px) {
+.button-mobile.no-navbar {
+    display: inline-block;
+}
+
+@media (min-width: 1001px) and (min-height: 701px) {
     #navbar-mobile {
+        display: none;
+    }
+
+    .button-mobile.no-navbar {
         display: none;
     }
 }
@@ -146,8 +154,9 @@
     width: 100%;
 }
 
-.mobile-config .switch{
-    margin-left: 40px;;
+.mobile-config .switch {
+    margin-left: 40px;
+    ;
 }
 
 .mobile-config .lang-dropdown {

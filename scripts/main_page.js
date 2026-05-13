@@ -244,16 +244,23 @@ async function loadData() {
 
 loadData();
 
-function setupLangDropdown(buttonId, menuId, dropdownId, themeToggle) {
+function setupLangDropdown(buttonId, menuId, dropdownId, themeToggle, themeToggleOthers) {
     const toggle = document.getElementById(themeToggle);
+    const toggleElements = themeToggleOthers.map(id => document.getElementById(id));
 
     toggle.addEventListener("change", () => {
         document.documentElement.classList.toggle("dark", toggle.checked);
         if (toggle.checked) {
             setCookie("theme", "dark", 60 * 60 * 24 * 7);
+            toggleElements.forEach(element => {
+                element.checked = true;
+            });
         }
         else {
             setCookie("theme", "light", 60 * 60 * 24 * 7);
+            toggleElements.forEach(element => {
+                element.checked = false;
+            });
         }
 
     });
@@ -307,8 +314,8 @@ function setupLangDropdown(buttonId, menuId, dropdownId, themeToggle) {
         }
     });
 }
-setupLangDropdown("lang-button", "lang-menu", "lang-dropdown", "themeToggle");
-setupLangDropdown("lang-button2", "lang-menu2", "lang-dropdown2", "themeToggle2");
+setupLangDropdown("lang-button", "lang-menu", "lang-dropdown", "themeToggle", ["themeToggle2"]);
+setupLangDropdown("lang-button2", "lang-menu2", "lang-dropdown2", "themeToggle2", ["themeToggle"]);
 
 function create_navbar_entry(navbar, navbar_mobile_links, title, id, j) {
     const navbar_item = document.createElement("li");
