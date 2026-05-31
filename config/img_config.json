@@ -49,6 +49,11 @@
             "id": "cnn_website_3",
             "image": "images_jpg/cnn_website_cnn.jpg",
             "image_pos": "left"
+        },
+        {
+            "id": "cnn_website_4",
+            "image": "images_jpg/yolo.jpg",
+            "image_pos": "center"
         }
     ]
 }

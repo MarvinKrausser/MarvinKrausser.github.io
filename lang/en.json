@@ -11,7 +11,7 @@
     {
       "id": "cnn_website",
       "title": "CNN Website",
-      "description": "The website uses a CNN for the classification of bird species.",
+      "description": "A website for showcasing various CNN projects such as bird classification and face detection.",
       "tags": [
         "React",
         "PyTorch",
@@ -35,7 +35,7 @@
         },
         {
           "heading": "Backend",
-          "text": "The backend is implemented in a containerized setup using Docker and is managed via Docker Compose. The individual components are only accessible via the Docker network. Caddy acts as a central router for all requests and automatically provides SSL certificates via Let's Encrypt. The React application runs behind an NGINX router, while the API is implemented as a FastAPI server. The --link-- is accessible via a subdomain and is forwarded by Caddy to the FastAPI server.",
+          "text": "The backend is implemented in a containerized setup using Docker and is managed via Docker Compose. The individual components are only accessible via the Docker network. Caddy acts as a central reverse proxy and automatically provides SSL certificates via Let's Encrypt. The React application runs behind an NGINX reverse proxy, while the API is implemented as a FastAPI server handling HTTP requests and WebSockets. The --link-- is accessible via a subdomain and is routed by Caddy to the FastAPI server.",
           "image": "cnn_website_2",
           "links": [
             {
@@ -46,9 +46,14 @@
           ]
         },
         {
-          "heading": "CNN",
+          "heading": "Bird Classification",
           "text": "The CNN classifies 7 bird species from images. It uses skip connections, dropout, and batch normalization to make training more stable and reduce overfitting.",
           "image": "cnn_website_3"
+        },
+        {
+          "heading": "Face Detection",
+          "text": "The model is based on the YOLO architecture and is able to detect faces in real time, even on low-end hardware (e.g., a server with 1 GB RAM and 1 vCPU). The frontend continuously sends cropped webcam stream frames via WebSockets to the server.",
+          "image": "cnn_website_4"
         }
       ]
     },
