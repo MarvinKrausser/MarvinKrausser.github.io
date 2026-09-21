@@ -7,7 +7,7 @@
     --border: #20192a;
     --serif: Georgia, serif;
     --sans: system-ui, sans-serif;
-    --nav-w: 230px;
+    --nav-w: 240px;
     --nav-mobile-w: min(60vw, 400px);
     --font-size: 1rem;
 }
