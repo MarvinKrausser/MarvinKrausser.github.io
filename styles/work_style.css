@@ -1,5 +1,5 @@
 /* Work / career sections.
-   DOM (see loadData in main_page.js):
+   DOM (see scripts/sections/work.js):
    .section-header > h1 + p.section-desc (role) + p.section-desc (dates, company) + .tags
    .tasks-div > .task-div > span.task-title + span.task-content */
 
