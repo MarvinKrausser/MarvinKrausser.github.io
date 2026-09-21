@@ -34,7 +34,8 @@
         "WebRTC",
         "Linux",
         "GitLab",
-        "C#"
+        "C#",
+        "FFmpeg"
       ],
       "start": "2026-05-15",
       "end": "heute",
