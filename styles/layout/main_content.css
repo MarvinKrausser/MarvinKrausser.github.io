@@ -1,0 +1,19 @@
+.main-content {
+    margin-left: var(--nav-w);
+    --margin-main-content: 7vw;
+    --margin-top: 100px;
+}
+
+@media (max-width: 1500px) {
+    .main-content {
+        --margin-main-content: 4vw;
+    }
+}
+
+@media (max-width: 1000px) or (max-height: 700px) {
+    .main-content {
+        margin-left: 0;
+        --margin-main-content: 20px;
+        --margin-top: 50px;
+    }
+}

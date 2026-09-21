@@ -1,0 +1,27 @@
+/* Entry point. Order matters: later rules win at equal specificity. */
+
+/* Base */
+@import "base/variables.css";
+@import "base/base.css";
+
+/* Layout */
+@import "layout/sidebar.css";
+@import "layout/navbar.css";
+@import "layout/mobile_bar.css";
+@import "layout/main_content.css";
+
+/* Components */
+@import "components/theme_switch.css";
+@import "components/lang_dropdown.css";
+@import "components/mobile_menu_button.css";
+@import "components/tags.css";
+@import "components/text_link.css";
+
+/* Sections */
+@import "sections/introduction.css";
+@import "sections/section_header.css";
+@import "sections/project_blocks.css";
+@import "sections/work.css";
+
+/* Utilities */
+@import "base/utilities.css";

@@ -1,0 +1,33 @@
+.text-link:hover {
+    border-color: var(--text);
+}
+
+.text-link {
+    display: inline-block;
+    width: fit-content;
+    font-size: var(--text-size);
+    font-weight: bolder;
+    text-decoration: none;
+    transition: border-color 0.15s;
+    white-space: nowrap;
+    position: relative;
+}
+
+.text-link:hover {
+    color: var(--text);
+}
+
+.text-link::before {
+    content: "";
+    width: 100%;
+    height: 1.2px;
+    background: var(--muted);
+    left: 0;
+    bottom: 2px;
+    position: absolute;
+    border-radius: 16px;
+}
+
+.text-link:hover::before {
+    background: var(--text);
+}

@@ -51,7 +51,34 @@ scripts/
     projects.js         project entries with image / text blocks
 ```
 
-Styles are split the same way (`styles/`): global variables and theming, sidebar, mobile bar, projects and career sections. Colours, spacing and fonts are CSS custom properties, and dark mode is a single class that overrides them.
+The stylesheets are organised the same way. `styles/main.css` imports the individual files in cascade order:
+
+```
+styles/
+  main.css              entry point, imports everything below
+  base/
+    variables.css       colours, fonts and sizes as CSS custom properties (light and dark)
+    base.css            resets and typography
+    utilities.css       helper classes
+  layout/
+    sidebar.css         fixed desktop sidebar
+    navbar.css          desktop navigation links
+    mobile_bar.css      slide-in mobile navigation
+    main_content.css    page margins and breakpoints
+  components/
+    theme_switch.css    light / dark toggle
+    lang_dropdown.css   language picker
+    mobile_menu_button.css
+    tags.css
+    text_link.css
+  sections/
+    introduction.css
+    section_header.css  shared header of work and project sections
+    project_blocks.css  image / text blocks
+    work.css            career entries
+```
+
+Colours, spacing and fonts are CSS custom properties, and dark mode is a single class that overrides them.
 
 ## Project structure
 
@@ -61,7 +88,7 @@ Styles are split the same way (`styles/`): global variables and theming, sidebar
 ├── lang/               en.json, de.json – all page content
 ├── config/             img_config.json – image ids, paths and crop positions
 ├── scripts/            ES modules (see above)
-├── styles/             stylesheets
+├── styles/             stylesheets (see above)
 ├── images/, images_jpg/  screenshots and diagrams for the projects
 ├── pdfs/               seminar paper, talk slides, user and developer handbooks
 ├── Dockerfile          NGINX image serving the site

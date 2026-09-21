@@ -1,0 +1,14 @@
+#introduction {
+    margin-top: var(--margin-top);
+    margin-left: var(--margin-main-content);
+    margin-bottom: 60px;
+    margin-right: var(--margin-main-content);
+}
+
+#introduction p {
+    color: var(--text);
+}
+
+.text-link.introduction {
+    margin-top: 20px;
+}

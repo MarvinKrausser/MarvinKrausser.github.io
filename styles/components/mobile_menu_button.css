@@ -1,0 +1,72 @@
+.button-mobile.no-navbar {
+    display: inline-block;
+}
+
+/* Hidden together with the mobile bar (mobile_bar.css) on large screens */
+@media (min-width: 1001px) and (min-height: 701px) {
+    .button-mobile.no-navbar {
+        display: none;
+    }
+}
+
+.button-mobile {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: var(--surface);
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+}
+
+.button-mobile.navbar {
+    margin-bottom: 20px;
+}
+
+.button-mobile::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    background: var(--muted);
+    height: 2px;
+    width: 60%;
+    transform: translateX(-50%);
+}
+
+.button-mobile::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 65%;
+    background: var(--muted);
+    height: 2px;
+    width: 60%;
+    transform: translateX(-50%);
+}
+
+.button-mobile:hover::after {
+    background: var(--text);
+}
+
+.button-mobile:hover::before {
+    background: var(--text);
+}
+
+.button-mobile:hover {
+    width: 40px;
+    height: 40px;
+    background: var(--bg2);
+}
+
+.button-mobile.no-navbar {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    margin-top: 0;
+}
+
+.button-mobile.no-navbar.inactive {
+    display: none;
+}

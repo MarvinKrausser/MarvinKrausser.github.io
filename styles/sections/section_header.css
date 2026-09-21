@@ -1,0 +1,9 @@
+.project-section {
+    border-top: 1px solid var(--border);
+}
+
+.section-header {
+    margin: 80px;
+    margin-left: var(--margin-main-content);
+    margin-right: var(--margin-main-content);
+}
