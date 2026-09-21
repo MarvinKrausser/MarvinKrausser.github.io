@@ -1,34 +1,60 @@
-.work-date {
-    margin-top: 30px;
-    color: var(--muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
+/* Work / career sections.
+   DOM (see loadData in main_page.js):
+   .section-header > h1 + p.section-desc (role) + p.section-desc (dates, company) + .tags
+   .tasks-div > .task-div > span.task-title + span.task-content */
+
+/* Header: tighter than the project headers, since the tasks follow directly */
+
+.section-header:has(+ .tasks-div) {
+    margin-bottom: 40px;
 }
 
+.section-header:has(+ .tasks-div) .section-desc {
+    margin: 0;
+}
+
+.section-header:has(+ .tasks-div) .section-desc:first-of-type {
+    margin-top: 12px;
+    color: var(--text);
+    font-size: calc(var(--font-size) + 0.1rem);
+}
+
+.section-header:has(+ .tasks-div) .section-desc + .section-desc {
+    margin-top: 4px;
+    font-size: calc(var(--font-size) - 0.05rem);
+}
+
+.section-header:has(+ .tasks-div) .tags {
+    margin-top: 24px;
+}
+
+/* Tasks */
+
 .tasks-div {
-    margin-top: 60px;
     display: flex;
     flex-direction: column;
-    gap: 35px;
-    margin-bottom: 120px;
-    margin-left: var(--margin-main-content);
+    gap: 28px;
+    max-width: 75ch;
+    margin: 0 var(--margin-main-content) 100px;
 }
 
 .task-div {
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    align-items: baseline;
+    padding-left: 20px;
+    border-left: 2px solid var(--border);
+    transition: border-color 0.18s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .task-div:hover {
+        border-color: var(--text);
+    }
 }
 
 .task-title {
     color: var(--text);
     font-weight: 700;
-    font-size: 1rem;
 }
 
 .task-content {
     color: var(--muted);
-    font-size: 1rem;
-    line-height: 1.7;
 }
