@@ -1,0 +1,34 @@
+.work-date {
+    margin-top: 30px;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.tasks-div {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    margin-bottom: 120px;
+    margin-left: var(--margin-main-content);
+}
+
+.task-div {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: baseline;
+}
+
+.task-title {
+    color: var(--text);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.task-content {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.7;
+}

@@ -62,7 +62,7 @@
 }
 
 .navbar-group {
-    margin-top: 15px;
+    margin-top: 25px;
     margin-bottom: 5px;
     font-size: calc(var(--font-size) + 0.1rem);
     font-family: var(--serif);

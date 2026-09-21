@@ -6,8 +6,45 @@
   "profession": "Medieninformatik",
   "workplace": "Universität Ulm",
   "github_desc": "Auf GitHub ansehen ↗",
-  "navbar_group": "Projekte",
-  "content": [
+  "navbar_group_work": "Berufserfahrung",
+  "navbar_group_projects": "Projekte",
+  "content_work": [
+    {
+      "id": "siemens_mobility",
+      "title": "Siemens Mobility GmbH",
+      "company": "Siemens Mobility GmbH",
+      "description": "Werkstudent Softwareentwicklung in Simulationsumgebung (Hybrid)",
+      "type": "Hybrid",
+      "tasks": [
+        {
+          "title": "Netzwerkentwicklung & Integration",
+          "content": "Konzeption und Implementierung einer stabilen Remote-Schnittstelle zur Anbindung externer Clients an eine Unity-Simulationsumgebung."
+        },
+        {
+          "title": "Server-Infrastruktur & Deployment",
+          "content": "Einrichtung, Absicherung und Administration eines Debian 13-Servers sowie Bereitstellung der Anwendungsinstanzen."
+        },
+        {
+          "title": "Agile Teamarbeit & Quality Assurance",
+          "content": "Aktive Kollaboration im Entwicklerteam unter Anwendung von Feature-Branching-Workflows (Git) und systematischen Code-Reviews."
+        }
+      ],
+      "tech": [
+        "Unity",
+        "WebRTC",
+        "Linux",
+        "GitLab",
+        "C#"
+      ],
+      "start": "2026-05-15",
+      "end": "heute",
+      "locale": "de-DE",
+      "from": "von",
+      "to": "bis",
+      "at": "bei"
+    }
+  ],
+  "content_projects": [
     {
       "id": "cnn_website",
       "title": "CNN Website",

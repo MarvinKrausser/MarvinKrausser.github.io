@@ -126,6 +126,27 @@ function setupObserver() {
     sections.forEach(section => observer.observe(section));
 }
 
+function createDate(date, lang){
+    const dateObj = new Date(date);
+
+    if (isNaN(dateObj.getTime())) {
+        return date;
+    }   
+
+    const formattedDate = new Intl.DateTimeFormat(lang || 'de-DE', {
+        dateStyle: 'medium'
+    }).format(dateObj);
+
+    return formattedDate
+}
+
+function StartEndDate(item){
+    const startDate = createDate(item.start, item.locale);
+    const endDate = createDate(item.end, item.locale);
+
+    return item.from + "\n" + startDate + "\n" + item.to + "\n" + endDate;
+}
+
 async function loadData() {
     const response = await fetch(`./lang/${lang}.json`);
     const image_response = await fetch(`./config/img_config.json`)
@@ -196,13 +217,84 @@ async function loadData() {
 
     create_navbar_entry(navbar, navbar_mobile_links, data.title_introduction, "introduction", 0);
 
-    const navbar_group = document.createElement("li");
-    navbar_group.className = "navbar-group";
-    navbar_group.textContent = data.navbar_group
-    navbar.appendChild(navbar_group);
+    const navbar_group_work = document.createElement("li");
+    navbar_group_work.className = "navbar-group";
+    navbar_group_work.textContent = data.navbar_group_work
+    navbar.appendChild(navbar_group_work);
+
+    
+    data.content_work.forEach((item, j) => {
+        const project = document.createElement("section");
+        project.className = "project-section";
+        project.id = item.id;
+        project.setAttribute("data-nav", item.id);
+        container.appendChild(project);
+
+        create_navbar_entry(navbar, navbar_mobile_links, item.title, item.id, j + 1);
 
 
-    data.content.forEach((item, j) => {
+        const header = document.createElement("div");
+        header.className = "section-header";
+        project.appendChild(header);
+
+        const headerTitle = document.createElement("h1");
+        headerTitle.className = "section-title";
+        headerTitle.textContent = item.title;
+        header.appendChild(headerTitle);
+
+        const headerDescRole = document.createElement("p");
+        headerDescRole.className = "section-desc";
+        headerDescRole.textContent = item.description;
+        header.appendChild(headerDescRole);
+
+        const headerDescCompany = document.createElement("p");
+        headerDescCompany.className = "section-desc";
+        headerDescCompany.textContent = StartEndDate(item) + "\n" + item.at + "\n" + item.company;
+        header.appendChild(headerDescCompany);
+
+
+        const techs = document.createElement("div");
+        techs.className = "tags";
+        header.appendChild(techs);
+
+        item.tech.forEach(tech_json => {
+            const tech = document.createElement("span");
+            tech.className = "tag";
+            tech.textContent = tech_json;
+            techs.appendChild(tech);
+        });
+
+
+        const tasks = document.createElement("div");
+        tasks.className = "tasks-div";
+        project.appendChild(tasks);
+
+        item.tasks.forEach(task_json => {
+            const task = document.createElement("div");
+            task.className = "task-div";
+
+
+            const taskTitle = document.createElement("span");
+            taskTitle.className = "task-title";
+            taskTitle.textContent = task_json.title + ": ";
+            task.appendChild(taskTitle);
+
+            const taskContent = document.createElement("span");
+            taskContent.className = "task-content";
+            taskContent.textContent = task_json.content;
+            task.appendChild(taskContent);
+
+            tasks.appendChild(task);
+        });
+    })
+
+
+    const navbar_group_projects = document.createElement("li");
+    navbar_group_projects.className = "navbar-group";
+    navbar_group_projects.textContent = data.navbar_group_projects
+    navbar.appendChild(navbar_group_projects);
+
+    data.content_projects.forEach((item, j) => {
         const project = document.createElement("section");
         project.className = "project-section";
         project.id = item.id;
