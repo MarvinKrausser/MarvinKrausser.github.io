@@ -16,7 +16,9 @@ export function renderProjects(container, navbar, data, imageConfig) {
             blocks.appendChild(createBlock(block, i, imageConfig));
         });
 
-        section.appendChild(createGithubLink(item.github, data.github_desc));
+        if (item.github) {
+            section.appendChild(createGithubLink(item.github, data.github_desc));
+        }
     });
 }
 

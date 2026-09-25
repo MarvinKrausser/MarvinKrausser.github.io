@@ -54,6 +54,11 @@
             "id": "cnn_website_4",
             "image": "images_jpg/yolo.jpg",
             "image_pos": "center"
+        },
+        {
+            "id": "selfhost_1",
+            "image": "images_jpg/gitea.jpg",
+            "image_pos": "left"
         }
     ]
 }

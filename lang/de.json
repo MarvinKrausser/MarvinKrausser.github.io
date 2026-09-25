@@ -96,6 +96,32 @@
       ]
     },
     {
+      "id": "selfhosting",
+      "title": "Self-Hosting",
+      "description": "Selbst gehostete Dienste, die in Docker-Containern auf meinem eigenen Debian 13-Server laufen.",
+      "tags": [
+        "Linux",
+        "Docker Compose",
+        "Gitea",
+        "SQLite"
+      ],
+      "github": "https://git.marvinkrausser.com",
+      "blocks": [
+        {
+          "heading": "Gitea",
+          "text": "Die --link-- dient mir als privater Git-Server für persönliche Repositories. Sie läuft als Docker-Container, der nur über den Caddy Reverse Proxy erreichbar ist, welcher HTTPS mit Let's-Encrypt-Zertifikaten bereitstellt. Der Git-Zugriff per SSH läuft über einen separaten Port und funktioniert ausschließlich mit SSH-Keys. Alle Daten, einschließlich der Repositories und der SQLite-Datenbank, liegen in einem einzigen Ordner auf dem Host, sodass ein Backup lediglich aus dem Archivieren dieses Ordners besteht.",
+          "image": "selfhost_1",
+          "links": [
+            {
+              "id": "gitea",
+              "link": "https://git.marvinkrausser.com",
+              "desc": "Gitea-Instanz ↗"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "pixelcnn",
       "title": "PixelCNN Bildgeneration",
       "description": "Autoregressives Deep Learning-Modell basierend auf PixelCNN zur generativen Bildsynthese mit PyTorch.",
