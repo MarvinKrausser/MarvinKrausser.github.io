@@ -1,5 +1,5 @@
 {
-  "title_website": "Marvins Protfolio",
+  "title_website": "Marvins Portfolio",
   "title_introduction": "Hallo!",
   "content_introduction": "Ich studiere Medieninformatik im Bachelor und habe im Rahmen meines Studiums praktische Erfahrungen in verschiedenen Projekten gesammelt. Besonders gerne arbeite ich an Projekten, in denen ich neue Technologien ausprobieren und vertiefen kann, aktuell vor allem im Bereich Machine Learning.",
   "status": "Student B.Sc.",
@@ -61,7 +61,7 @@
       "blocks": [
         {
           "heading": "Frontend",
-          "text": "Die --link-- Website ist online. Das Frontend wurde mit React implementiert und ermöglicht das Hochladen von Bildern sowie die Anzeige von Klassifikationsergebnissen. Es ist responsiv gestaltet und passt sich an verschiedene Bildschirmgrößen an, wodurch es auch auf Mobilgeräten gut nutzbar ist.",
+          "text": "Die --link-- ist online. Das Frontend wurde mit React implementiert und ermöglicht das Hochladen von Bildern sowie die Anzeige von Klassifikationsergebnissen. Es ist responsiv gestaltet und passt sich an verschiedene Bildschirmgrößen an, wodurch es auch auf Mobilgeräten gut nutzbar ist.",
           "image": "cnn_website_1",
           "links": [
             {
@@ -84,12 +84,12 @@
           ]
         },
         {
-          "heading": "Bird Classification",
+          "heading": "Vogelklassifikation",
           "text": "Das CNN klassifiziert sieben Vogelarten aus Bildern. Es verwendet Skip Connections, Dropout und Batch Normalization, um das Training stabiler zu machen und Overfitting zu reduzieren.",
           "image": "cnn_website_3"
         },
         {
-          "heading": "Face Detection",
+          "heading": "Gesichtserkennung",
           "text": "Das Modell basiert auf der YOLO-Architektur und kann Gesichter in Echtzeit erkennen, selbst auf schwacher Hardware (z. B. ein Server mit 1 GB RAM und 1 vCPU). Das Frontend sendet kontinuierlich ausgeschnittene Frames des Webcam-Streams über WebSockets an den Server.",
           "image": "cnn_website_4"
         }
