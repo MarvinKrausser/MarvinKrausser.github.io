@@ -7,10 +7,10 @@ services:
       - "8081"
     restart: unless-stopped
     networks:
-      - cnn_network
+      - portfolio_network
     pull_policy: never
     container_name: portfolio_website
 
 networks:
-  cnn_network:
+  portfolio_network:
    external: true
